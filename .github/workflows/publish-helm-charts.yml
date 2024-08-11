@@ -3,7 +3,7 @@ name: Publish Helm Charts to GitHub Pages
 on:
   push:
     branches:
-      - development
+      - main
 
 jobs:
   publish-charts:
@@ -60,7 +60,7 @@ jobs:
 
       - name: Publish Charts to GitHub Pages
         run: |
-          helm repo index --url https://amaze360.github.io/helm/ .
+          helm repo index --url https://f3k-tech.github.io/helm-f3k/ .
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add .
