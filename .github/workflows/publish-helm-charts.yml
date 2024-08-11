@@ -56,7 +56,7 @@ jobs:
       - name: Copy Artifact Hub and README files
         run: |
           git checkout gh-pages
-          git checkout development -- index.html README.md .gitignore
+          git checkout main -- index.html README.md .gitignore
 
       - name: Publish Charts to GitHub Pages
         run: |
