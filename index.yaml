@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  basic-app:
+  - apiVersion: v2
+    appVersion: 0.0.0
+    created: "2024-08-12T05:55:05.24259805Z"
+    description: A Helm chart basic apps
+    digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
+    name: basic-app
+    type: application
+    urls:
+    - https://f3k-tech.github.io/helm-f3k/basic-app-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-08-12T05:55:05.242069887Z"
