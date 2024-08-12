@@ -34,7 +34,7 @@ jobs:
           git checkout gh-pages
           # Fetch existing charts information
           helm repo index . --merge index.yaml
-          git checkout development -- charts
+          git checkout main -- charts
           cd charts
           for dir in */ ; do
             chart_name=$(basename "$dir")
