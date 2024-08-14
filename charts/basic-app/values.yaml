@@ -46,7 +46,7 @@ service:
 
 ingress:
   enabled: true
-  className: ""
+  className: "traefik"
   annotations: {
     cert-manager.io/cluster-issuer: letsencrypt-production
   }
