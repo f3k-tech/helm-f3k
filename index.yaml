@@ -3,7 +3,17 @@ entries:
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-08-14T17:53:58.28346552Z"
+    created: "2024-08-14T18:26:01.492552594Z"
+    description: A Helm chart basic apps
+    digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
+    name: basic-app
+    type: application
+    urls:
+    - https://f3k-tech.github.io/helm-f3k/basic-app-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-08-14T18:26:01.492185235Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -13,7 +23,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2024-08-14T17:53:58.282948904Z"
+    created: "2024-08-14T18:26:01.491815282Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/basic-app-0.0.1.tgz
     version: 0.0.1
-generated: "2024-08-14T17:53:58.282402153Z"
+generated: "2024-08-14T18:26:01.491298293Z"
