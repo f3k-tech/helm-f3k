@@ -1,0 +1,31 @@
+{{- if .Values.persistence.panoramas.enabled -}}
+{{- if not .Values.persistence.panoramas.existingClaim -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "panorama-server.fullname" . }}-panoramas
+  labels:
+    app.kubernetes.io/name: {{ include "panorama-server.name" . }}
+    helm.sh/chart: {{ include "panorama-server.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/component: app
+{{- if .Values.persistence.panoramas.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.panoramas.annotations | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.panoramas.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.panoramas.size | quote }}
+{{- if .Values.persistence.panoramas.storageClass }}
+{{- if (eq "-" .Values.persistence.panoramas.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.panoramas.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}
+{{- end -}}

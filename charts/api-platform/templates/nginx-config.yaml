@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "api-platform.fullname" . }}-nginx-config
+data:
+  default.conf: |
+    upstream php-fpm {
+        server {{ include "api-platform.fullname" . }}:9000;
+    }
+
+    server {
+        listen 80;
+        server_name _;
+
+        root /var/www/public;
+
+        index index.php index.html index.htm;
+
+        client_max_body_size 16G;         
+        client_body_timeout 3600s;        
+        send_timeout 3600s;               
+        keepalive_timeout 60s;   
+
+        location / {
+            try_files $uri /index.php$is_args$args;
+
+            add_header 'Access-Control-Allow-Origin' '*' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type' always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+            if ($request_method = 'OPTIONS') {
+                add_header 'Access-Control-Allow-Origin' '*';
+                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type';
+                add_header 'Access-Control-Allow-Credentials' 'true';
+                return 204;
+            } 
+        }
+
+        location ~ \.php$ {
+            include fastcgi_params;
+            fastcgi_pass php-fpm;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        }
+
+        location ~ /\.ht {
+            deny all;
+        }
+    }

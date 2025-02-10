@@ -1,0 +1,31 @@
+{{- if .Values.persistence.jwtKeys.enabled -}}
+{{- if not .Values.persistence.jwtKeys.existingClaim -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "api-platform.fullname" . }}-jwt-keys
+  labels:
+    app.kubernetes.io/name: {{ include "api-platform.name" . }}
+    helm.sh/chart: {{ include "api-platform.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/component: app
+{{- if .Values.persistence.jwtKeys.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.jwtKeys.annotations | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.jwtKeys.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.jwtKeys.size | quote }}
+{{- if .Values.persistence.jwtKeys.storageClass }}
+{{- if (eq "-" .Values.persistence.jwtKeys.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.jwtKeys.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}
+{{- end -}}

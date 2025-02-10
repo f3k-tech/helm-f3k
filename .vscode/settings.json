@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/yamllint.json": "file:///Users/freek/git/f3k/helm-f3k/charts/panorama-server/values.yaml"
+    }
+}
