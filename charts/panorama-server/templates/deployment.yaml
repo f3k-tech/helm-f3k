@@ -138,9 +138,6 @@ spec:
         {{- if .Values.affinity }}
           {{- toYaml .Values.affinity | nindent 8 }}
         {{- end }}
-        {{- if .Values.affinity }}
-          {{- toYaml .Values.affinity | nindent 8 }}
-        {{- end }}
       {{- with .Values.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
