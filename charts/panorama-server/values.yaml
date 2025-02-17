@@ -38,6 +38,11 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+nginx:
+  image:
+    repository: nginx
+    tag: "alpine"
+
 resources:
   requests:
     cpu: "500m"
