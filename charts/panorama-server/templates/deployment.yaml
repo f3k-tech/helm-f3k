@@ -47,6 +47,14 @@ spec:
           persistentVolumeClaim:
             claimName: {{ if .Values.persistence.panoramas.existingClaim }}{{ .Values.persistence.panoramas.existingClaim }}{{- else }}{{ template "panorama-server.fullname" . }}-panoramas{{- end }}
           {{- end }}
+        - name: app-data
+          emptyDir: {}
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+        - name: php-config
+          configMap:
+            name: php-config
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -71,13 +79,13 @@ spec:
             postStart:
               exec:
                 command:
-                  {{- toYaml . | nindent 18 -}}
+                  {{- toYaml . | nindent 18 }}
             {{- end }}
             {{- with .preStopCommand }}
             preStop:
               exec:
                 command:
-                  {{- toYaml . | nindent 18 -}}
+                  {{- toYaml . | nindent 18 }}
             {{- end }}
           {{- end }}
           {{- if .Values.livenessProbe.enabled }}
@@ -110,16 +118,16 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
         - name: nginx
-            image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
-            ports:
-              - name: http
-                containerPort: 80
-            volumeMounts:
-              - name: app-data
-                mountPath: /var/www/html
-              - name: nginx-config
-                mountPath: /etc/nginx/nginx.conf
-                subPath: nginx.conf
+          image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
+          ports:
+            - name: http
+              containerPort: 80
+          volumeMounts:
+            - name: app-data
+              mountPath: /var/www/html
+            - name: nginx-config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
