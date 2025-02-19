@@ -52,9 +52,9 @@ spec:
         - name: nginx-config
           configMap:
             name: nginx-config
-        - name: php-config
+        - name: php-ini-config
           configMap:
-            name: php-config
+            name: php-ini-config
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -69,6 +69,9 @@ spec:
               mountPath: /var/www/data
             - name: panorama-server-panoramas
               mountPath: /var/www/html/panoramas
+            - name: php-ini-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
