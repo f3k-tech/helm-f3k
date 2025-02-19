@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: php-ini-config
+
+data:
+  php.ini: |
+    max_execution_time = 3600
+    max_input_time = 3600
+    memory_limit = 2048M
+    post_max_size = 16G
+    upload_max_filesize = 16G
+    max_file_uploads = 20
+    default_socket_timeout = 60
+    error_reporting = E_ERROR
