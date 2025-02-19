@@ -41,7 +41,7 @@ ingress:
 nginx:
   image:
     repository: nginx
-    tag: "alpine"
+    tag: "latest"
 
 resources:
   requests:
