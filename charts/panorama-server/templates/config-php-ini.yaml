@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: php-ini-config
+  name: {{ include "panorama-server.fullname" . }}-php-ini-config
 
 data:
   php.ini: |

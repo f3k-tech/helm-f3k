@@ -51,10 +51,10 @@ spec:
           emptyDir: {}
         - name: nginx-config
           configMap:
-            name: nginx-config
+            name: {{ include "panorama-server.fullname" . }}-nginx-config
         - name: php-ini-config
           configMap:
-            name: php-ini-config
+            name: {{ include "panorama-server.fullname" . }}-php-ini-config
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
