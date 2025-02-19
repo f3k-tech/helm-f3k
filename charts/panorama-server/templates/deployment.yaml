@@ -131,6 +131,10 @@ spec:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+          initContainers:
+            - name: wait-for-{{ .Chart.Name }}
+              image: busybox
+              command: ['sh', '-c', 'until nc -z -v -w30 {{ include "panorama-server.fullname" . }} {{ .Values.service.port }}; do echo waiting for panorama-server; sleep 5; done;']
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
