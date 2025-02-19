@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "panorama-server.fullname" . }}-php-fpm-config
+data:
+  www.conf: |
+    [www]
+    user = www-data
+    group = www-data
+    listen = 9000
+    pm = dynamic
+    pm.max_children = 5
+    pm.start_servers = 2
+    pm.min_spare_servers = 1
+    pm.max_spare_servers = 3

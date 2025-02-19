@@ -42,7 +42,7 @@ nginx:
   enabled: true
   image:
     repository: nginx
-    tag: alpine
+    tag: latest
   service:
     ports:
       http: 80

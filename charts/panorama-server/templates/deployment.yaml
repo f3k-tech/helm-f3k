@@ -47,6 +47,9 @@ spec:
           persistentVolumeClaim:
             claimName: {{ if .Values.persistence.panoramas.existingClaim }}{{ .Values.persistence.panoramas.existingClaim }}{{- else }}{{ template "panorama-server.fullname" . }}-panoramas{{- end }}
           {{- end }}
+        - name: php-fpm-config
+          configMap:
+            name: {{ include "panorama-server.fullname" . }}-php-fpm-config
         - name: php-ini-config
           configMap:
             name: {{ include "panorama-server.fullname" . }}-php-ini-config
@@ -64,6 +67,9 @@ spec:
               mountPath: /var/www/data
             - name: panorama-server-panoramas
               mountPath: /var/www/html/panoramas
+            - name: php-fpm-config
+              mountPath: /usr/local/etc/php-fpm.d/www.conf
+              subPath: www.conf
             - name: php-ini-config
               mountPath: /usr/local/etc/php/conf.d/php.ini
               subPath: php.ini
