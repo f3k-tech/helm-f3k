@@ -18,7 +18,7 @@ args: []
 
 service:
   type: ClusterIP
-  port: 80
+  port: 9000
 
 ingress:
   enabled: false
@@ -39,9 +39,15 @@ ingress:
   #      - chart-example.local
 
 nginx:
+  enabled: true
   image:
     repository: nginx
-    tag: "alpine"
+    tag: alpine
+  service:
+    ports:
+      http: 80
+  config:
+    custom: {}
 
 resources:
   requests:
