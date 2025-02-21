@@ -12,6 +12,14 @@ spec:
       labels:
         app: nginx
     spec:
+      initContainers:
+        - name: wait-for-{{ include "api-platform.fullname" . }}
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              until nc -z {{ include "api-platform.fullname" . }} 9000; do echo waiting for {{ include "api-platform.fullname" . }}; sleep 2; done;
       containers:
         - name: nginx
           image: {{ .Values.nginx.image }}
