@@ -11,14 +11,16 @@ imagePullSecrets:
 nameOverride: ""
 fullnameOverride: ""
 
-args: []
+args:
+  - --cpu-cores
+  - "1"
   # - --cleanup
   # - --update-panoramas
   # - --slice-images
 
 service:
   type: ClusterIP
-  port: 80
+  port: 9000
 
 ingress:
   enabled: false
@@ -37,6 +39,28 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+nginx:
+  enabled: true
+  image:
+    repository: nginx
+    tag: latest
+  service:
+    ports:
+      http: 80
+  config:
+    client_max_body_size: 16G
+    timeout: 3600s
+
+php:
+  config:
+    max_execution_time: 3600
+    max_input_time: 3600
+    memory_limit: 2048M
+    post_max_size: 16G
+    upload_max_filesize: 16G
+    max_file_uploads: 20
+    default_socket_timeout: 3600
 
 resources:
   requests:

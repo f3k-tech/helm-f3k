@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "panorama-server.fullname" . }}-php-ini-config
+
+data:
+  php.ini: |
+    max_execution_time = {{ .Values.php.config.max_execution_time }}
+    max_input_time = {{ .Values.php.config.max_input_time }}
+    memory_limit = {{ .Values.php.config.memory_limit }}
+    post_max_size = {{ .Values.php.config.post_max_size }}
+    upload_max_filesize = {{ .Values.php.config.upload_max_filesize }}
+    max_file_uploads = {{ .Values.php.config.max_file_uploads }}
+    default_socket_timeout = {{ .Values.php.config.default_socket_timeout }}
+    error_reporting = {{ .Values.php.config.error_reporting }}
