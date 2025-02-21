@@ -12,10 +12,10 @@ spec:
       labels:
         app: nginx
     spec:
-      # initContainers:
-      #   - name: wait-for-{{ .Chart.Name }}
-      #     image: busybox
-      #     command: ['sh', '-c', 'until nc -z -v -w30 {{ include "panorama-server.fullname" . }} {{ .Values.service.port }}; do echo waiting for {{ include "panorama-server.fullname" . }}:{{ .Values.service.port }}; sleep 5; done;']
+      initContainers:
+        - name: wait-for-{{ .Chart.Name }}
+          image: busybox
+          command: ['sh', '-c', 'until nc -z -v -w30 {{ include "panorama-server.fullname" . }} {{ .Values.service.port }}; do echo waiting for {{ include "panorama-server.fullname" . }}:{{ .Values.service.port }}; sleep 5; done;']
       containers:
         - name: nginx
           image: {{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}
