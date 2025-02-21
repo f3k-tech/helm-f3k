@@ -11,7 +11,9 @@ imagePullSecrets:
 nameOverride: ""
 fullnameOverride: ""
 
-args: []
+args:
+  - --cpu-cores
+  - "2"
   # - --cleanup
   # - --update-panoramas
   # - --slice-images
