@@ -50,9 +50,7 @@ nginx:
       http: 80
   config:
     client_max_body_size: 16G
-    client_body_timeout: 3600s
-    send_timeout: 3600s
-    keepalive_timeout: 60s
+    timeout: 3600s
 
 resources:
   requests:
