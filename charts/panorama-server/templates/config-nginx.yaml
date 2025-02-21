@@ -16,10 +16,10 @@ data:
 
         index index.php index.html index.htm;
 
-        client_max_body_size 16G;         
-        client_body_timeout 3600s;        
-        send_timeout 3600s;               
-        keepalive_timeout 60s;   
+        client_max_body_size {{ .Values.nginx.config.client_max_body_size }};
+        client_body_timeout {{ .Values.nginx.config.client_body_timeout }};
+        send_timeout {{ .Values.nginx.config.send_timeout }};
+        keepalive_timeout {{ .Values.nginx.config.keepalive_timeout }};
 
         location / {
             try_files $uri /index.php$is_args$args;
