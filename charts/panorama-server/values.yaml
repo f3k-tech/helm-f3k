@@ -13,7 +13,7 @@ fullnameOverride: ""
 
 args:
   - --cpu-cores
-  - "2"
+  - "1"
   # - --cleanup
   # - --update-panoramas
   # - --slice-images
