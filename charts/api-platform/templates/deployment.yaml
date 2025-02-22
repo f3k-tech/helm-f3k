@@ -34,12 +34,11 @@ spec:
         {{- with .Values.extraInitContainers }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-        {{- if .Values.mysql.enabled }}
+        {{- if and .Values.mysql.enabled .Values.mysqlIsAlive.enabled }}
         - name: mysql-isalive
-          {{- with (index .Chart.Dependencies 0) }}
-          image: "{{ .Repository }}/{{ .Name }}:latest"
-          {{- end }}
-          {{- with .Values.mysql.initContainer }}
+          image: "{{ .Values.mysqlIsAlive.image.repository }}:{{ .Values.mysqlIsAlive.image.tag }}"
+          imagePullPolicy: {{ .Values.mysqlIsAlive.image.pullPolicy }}
+          {{- with .Values.mysqlIsAlive.initContainer }}
           resources:
             {{- toYaml .resources | nindent 12 }}
           securityContext:

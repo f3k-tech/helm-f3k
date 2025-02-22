@@ -64,6 +64,13 @@ nginx:
   config:
     custom: {}
 
+mysqlIsAlive:
+  enabled: true
+  image:
+    repository: bitnami/mysql
+    pullPolicy: IfNotPresent
+    tag: "8.0.36"
+
 mysql:
   enabled: true
   auth:
