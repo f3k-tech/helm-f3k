@@ -45,19 +45,17 @@ spec:
           {{- end }}
           env:
             - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.mysql.existingSecret.secretName | default (printf "%s-db" .Release.Name) }}
-                  key: {{ .Values.mysql.existingSecret.usernameKey }}
+              value: {{ .Values.mysql.auth.username }}
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.mysql.existingSecret.secretName | default (printf "%s-db" .Release.Name) }}
-                  key: {{ .Values.mysql.existingSecret.passwordKey }}
+                  name: {{ include "api-platform.fullname" . }}-mysql
+                  key: mysql-password
           command:
             - "sh"
             - "-c"
             - {{ printf "until mysql --host=%s-mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
+          
         {{- end }}
       containers:
         - name: {{ .Chart.Name }}
