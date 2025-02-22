@@ -36,7 +36,7 @@ spec:
         {{- end }}
         {{- if .Values.mysql.enabled }}
         - name: mysql-isalive
-          image: "{{ .Chart.dependencies[0].repository }}/{{ .Chart.dependencies[0].name }}:{{ .Chart.dependencies[0].version }}"
+          image: "{{ .Chart.dependencies.0.repository }}/{{ .Chart.dependencies.0.name }}:{{ .Chart.dependencies.0.version }}"
           {{- with .Values.mysql.initContainer }}
           resources:
             {{- toYaml .resources | nindent 12 }}
@@ -55,7 +55,6 @@ spec:
             - "sh"
             - "-c"
             - {{ printf "until mysql --host=%s-mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
-          
         {{- end }}
       containers:
         - name: {{ .Chart.Name }}
