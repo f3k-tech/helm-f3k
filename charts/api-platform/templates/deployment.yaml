@@ -31,22 +31,39 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: wait-for-mysql
-          image: busybox
-          command:
-            - sh
-            - -c
-            - |
-              until nslookup {{ include "api-platform.fullname" . }}-mysql; do echo waiting for mysql; sleep 2; done;
-              until mysqladmin ping -h {{ include "api-platform.fullname" . }}-mysql --silent; do echo waiting for mysql; sleep 2; done;
-          {{- with .Values.extraInitContainers }}
-          {{- toYaml . | nindent 8 }}
+        {{- with .Values.extraInitContainers }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- if .Values.mysql.enabled }}
+        - name: mysql-isalive
+          image: "{{ .Chart.dependencies[0].repository }}/{{ .Chart.dependencies[0].name }}:{{ .Chart.dependencies[0].version }}"
+          {{- with .Values.mysql.initContainer }}
+          resources:
+            {{- toYaml .resources | nindent 12 }}
+          securityContext:
+            {{- toYaml .securityContext | nindent 12 }}
           {{- end }}
+          env:
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.mysql.existingSecret.secretName | default (printf "%s-db" .Release.Name) }}
+                  key: {{ .Values.mysql.existingSecret.usernameKey }}
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.mysql.existingSecret.secretName | default (printf "%s-db" .Release.Name) }}
+                  key: {{ .Values.mysql.existingSecret.passwordKey }}
+          command:
+            - "sh"
+            - "-c"
+            - {{ printf "until mysql --host=%s-mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.appVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
