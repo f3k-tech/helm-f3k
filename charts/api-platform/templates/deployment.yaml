@@ -36,7 +36,9 @@ spec:
         {{- end }}
         {{- if .Values.mysql.enabled }}
         - name: mysql-isalive
-          image: "{{ (index .Chart.dependencies 0).repository }}/{{ (index .Chart.dependencies 0).name }}:{{ (index .Chart.dependencies 0).version }}"
+          {{- with (index .Chart.dependencies 0) }}
+          image: "{{ .repository }}/{{ .name }}:{{ .version }}"
+          {{- end }}
           {{- with .Values.mysql.initContainer }}
           resources:
             {{- toYaml .resources | nindent 12 }}
