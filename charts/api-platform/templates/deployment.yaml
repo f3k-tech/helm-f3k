@@ -38,12 +38,6 @@ spec:
         - name: mysql-isalive
           image: "{{ .Values.mysqlIsAlive.image.repository }}:{{ .Values.mysqlIsAlive.image.tag }}"
           imagePullPolicy: {{ .Values.mysqlIsAlive.image.pullPolicy }}
-          {{- with .Values.mysqlIsAlive.initContainer }}
-          resources:
-            {{- toYaml .resources | nindent 12 }}
-          securityContext:
-            {{- toYaml .securityContext | nindent 12 }}
-          {{- end }}
           env:
             - name: MYSQL_USER
               value: {{ .Values.mysql.auth.username }}
