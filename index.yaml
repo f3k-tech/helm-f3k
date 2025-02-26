@@ -3,7 +3,22 @@ entries:
   api-platform:
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.647972255Z"
+    created: "2025-02-26T11:52:30.326290161Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.1.*
+    description: A Helm chart for Kubernetes
+    digest: c055e185008d9f4933a580cc794fd257f6597b7a58d310ffad76e8fa8ab3d39c
+    name: api-platform
+    type: application
+    urls:
+    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.30.tgz
+    version: 0.1.30
+  - apiVersion: v2
+    appVersion: "12"
+    created: "2025-02-26T11:52:30.318129855Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -18,7 +33,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.644463794Z"
+    created: "2025-02-26T11:52:30.314630441Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -33,7 +48,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.640141199Z"
+    created: "2025-02-26T11:52:30.310155661Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -48,7 +63,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.636328285Z"
+    created: "2025-02-26T11:52:30.306475119Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -63,7 +78,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.631537123Z"
+    created: "2025-02-26T11:52:30.301327478Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -78,7 +93,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.627840828Z"
+    created: "2025-02-26T11:52:30.297833685Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -93,7 +108,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.624348499Z"
+    created: "2025-02-26T11:52:30.294205351Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -108,7 +123,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.619825226Z"
+    created: "2025-02-26T11:52:30.289337739Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -123,7 +138,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.616186952Z"
+    created: "2025-02-26T11:52:30.285817947Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -138,7 +153,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.611052113Z"
+    created: "2025-02-26T11:52:30.281284845Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -153,7 +168,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.67528148Z"
+    created: "2025-02-26T11:52:30.349002303Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -168,7 +183,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.671808707Z"
+    created: "2025-02-26T11:52:30.345571939Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -183,7 +198,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.667759946Z"
+    created: "2025-02-26T11:52:30.342075791Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -198,7 +213,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.663823618Z"
+    created: "2025-02-26T11:52:30.337564348Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -213,7 +228,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.660241128Z"
+    created: "2025-02-26T11:52:30.334114797Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -228,7 +243,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.655746682Z"
+    created: "2025-02-26T11:52:30.329710366Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -243,7 +258,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-26T11:52:09.652179411Z"
+    created: "2025-02-26T11:52:30.321599944Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -259,7 +274,7 @@ entries:
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:09.677286578Z"
+    created: "2025-02-26T11:52:30.350045464Z"
     description: A Helm chart basic apps
     digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
     name: basic-app
@@ -269,7 +284,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:09.676688952Z"
+    created: "2025-02-26T11:52:30.349691592Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -279,7 +294,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2025-02-26T11:52:09.675884666Z"
+    created: "2025-02-26T11:52:30.349345896Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -290,7 +305,7 @@ entries:
   panorama-server:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:09.678274219Z"
+    created: "2025-02-26T11:52:30.351921083Z"
     description: Creates and serves 360 panoramas
     digest: 5088b12173ef17316ab69a3a177ced6cd9dc72bd7606024102812019f060f8a4
     name: panorama-server
@@ -300,7 +315,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:09.67774421Z"
+    created: "2025-02-26T11:52:30.351138638Z"
     description: Creates and serves 360 panoramas
     digest: 59e0bd235224289d4b76203f315cbe2ed59121ef768eb86c347c9f3e7be1c356
     name: panorama-server
@@ -308,4 +323,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/panorama-server-0.1.13.tgz
     version: 0.1.13
-generated: "2025-02-26T11:52:09.606952499Z"
+generated: "2025-02-26T11:52:30.277529614Z"
