@@ -67,6 +67,16 @@ nginx:
     send_timeout: 3600s
     keepalive_timeout: 60s
 
+php:
+  config:
+    max_execution_time: 3600
+    max_input_time: 3600
+    memory_limit: 2048M
+    post_max_size: 16G
+    upload_max_filesize: 16G
+    max_file_uploads: 20
+    default_socket_timeout: 3600
+
 mysqlIsAlive:
   enabled: true
   image:
