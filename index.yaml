@@ -1,280 +1,9 @@
 apiVersion: v1
 entries:
-  api-platform:
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.326290161Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: c055e185008d9f4933a580cc794fd257f6597b7a58d310ffad76e8fa8ab3d39c
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.30.tgz
-    version: 0.1.30
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.318129855Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: e0559423e43746ee5138cc2465c9e6cc5c223b3592e145bb5e5a30c4c7d6c42c
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.19.tgz
-    version: 0.1.19
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.314630441Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: fed45a86271a19dfcc089474820880e867b3a00e4c06a97f5ad95e685b069218
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.18.tgz
-    version: 0.1.18
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.310155661Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 5f248ff8ea22b184ad5c33cc3d9ba3aa2bee31357d2b9b119f99c4671cd8c1a8
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.17.tgz
-    version: 0.1.17
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.306475119Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: a1e1c71b9830d4803aa4b672596907d5cd471cc015087278bd22b867adc48832
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.16.tgz
-    version: 0.1.16
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.301327478Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 1bb5dec6313b4db141b02ebd31c9195048f8ccf96626e3a5ac7e72f43e6c4b5d
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.15.tgz
-    version: 0.1.15
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.297833685Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 32850220cb858369ab5a07a530ee16820478dd6ba6602215d0f6381340a99d29
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.14.tgz
-    version: 0.1.14
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.294205351Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: cc21f3374ddb164cceac53e07ac2903af56a624fb6d7f71a2f6a5e525b11c658
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.13.tgz
-    version: 0.1.13
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.289337739Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 380729c93c0aae4b0dca07007098d094532257b30e09470d6fb2795801285f0a
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.12.tgz
-    version: 0.1.12
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.285817947Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 6d303fcfbe045d0a61c57e4d2970a141085bd98055c350d6b5c963046f046287
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.11.tgz
-    version: 0.1.11
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.281284845Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 97926bf0f8283527d2e529662eff401ee6583b8d1ada72463a6d24986026c556
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.10.tgz
-    version: 0.1.10
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.349002303Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: c45cae3ce3acad5126d3f0978f5b7d9fad7034ee85fb21fdd084d7ccce495a7d
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.9.tgz
-    version: 0.1.9
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.345571939Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 4d5e860ab738cc44d62b986c80519ee54bdf75ce552aa0ba2fe6a4e810d6eb53
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.8.tgz
-    version: 0.1.8
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.342075791Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: b8ccca48b131ebdcc7581f3684cd42bead09b828439e55463468fbc4922f269f
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.7.tgz
-    version: 0.1.7
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.337564348Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 50df0b0bf30bfe548b095351e896397016cc30194efd812bd4cc80f4c5a14ac8
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.6.tgz
-    version: 0.1.6
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.334114797Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 1aa083a72803c1593491d72aedd7c789979e233ee4f1c858f1501f678ae866ba
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.5.tgz
-    version: 0.1.5
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.329710366Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: 0557b0aa21c5cccc6e73ac5e3a152c6506b9dee94377868b0fe1471f6cbe2c31
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.4.tgz
-    version: 0.1.4
-  - apiVersion: v2
-    appVersion: "12"
-    created: "2025-02-26T11:52:30.321599944Z"
-    dependencies:
-    - condition: mysql.enabled
-      name: mysql
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.1.*
-    description: A Helm chart for Kubernetes
-    digest: bfc6931b334002906e943ff498c51b9fa359fd462a5f40b5fa4e8de5bda7313f
-    name: api-platform
-    type: application
-    urls:
-    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.3.tgz
-    version: 0.1.3
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:30.350045464Z"
+    created: "2025-02-26T11:59:56.230434516Z"
     description: A Helm chart basic apps
     digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
     name: basic-app
@@ -284,7 +13,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:30.349691592Z"
+    created: "2025-02-26T11:59:56.230038687Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -294,7 +23,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2025-02-26T11:52:30.349345896Z"
+    created: "2025-02-26T11:59:56.229669116Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -305,7 +34,7 @@ entries:
   panorama-server:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:30.351921083Z"
+    created: "2025-02-26T11:59:56.231423716Z"
     description: Creates and serves 360 panoramas
     digest: 5088b12173ef17316ab69a3a177ced6cd9dc72bd7606024102812019f060f8a4
     name: panorama-server
@@ -315,7 +44,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-26T11:52:30.351138638Z"
+    created: "2025-02-26T11:59:56.230883516Z"
     description: Creates and serves 360 panoramas
     digest: 59e0bd235224289d4b76203f315cbe2ed59121ef768eb86c347c9f3e7be1c356
     name: panorama-server
@@ -323,4 +52,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/panorama-server-0.1.13.tgz
     version: 0.1.13
-generated: "2025-02-26T11:52:30.277529614Z"
+generated: "2025-02-26T11:59:56.229112345Z"
