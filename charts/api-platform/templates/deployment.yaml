@@ -72,11 +72,13 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-app
                   key: jwt-passphrase
+            {{- if .Values.mysql.enabled }}
             - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-mysql
                   key: mysql-password
+            {{- end }}
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mysql.auth.username }}:$(MYSQL_PASSWORD)@{{ include "api-platform.fullname" . }}-mysql:3306/{{ .Values.mysql.auth.database }}"
             - name: CORS_ALLOW_ORIGIN
@@ -95,17 +97,16 @@ spec:
             - name: php-ini-config
               mountPath: /usr/local/etc/php/conf.d/php.ini
               subPath: php.ini
-            - name: api-platform-jwt-keys
+            - name: jwt-keys
               mountPath: /var/www/config/jwt
+              readOnly: true
       volumes:
         - name: php-ini-config
           configMap:
             name: {{ include "api-platform.fullname" . }}-php-ini-config
-        - name: api-platform-jwt-keys
-          {{- if .Values.persistence.jwtKeys.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ if .Values.persistence.jwtKeys.existingClaim }}{{ .Values.persistence.jwtKeys.existingClaim }}{{- else }}{{ template "api-platform.fullname" . }}-jwt-keys{{- end }}
-          {{- end }}
+        - name: jwt-keys
+          secret:
+            secretName: {{ include "api-platform.fullname" . }}-jwt-keys
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -21,15 +21,6 @@ serviceAccount:
   annotations: {}
   name: ""
 
-persistence:
-  jwtKeys:
-    enabled: false
-    # storageClass: "-"
-    # existingClaim: api-platform-jwt-keys
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    annotations: {}
-
 podAnnotations: {}
 podLabels: {}
 
