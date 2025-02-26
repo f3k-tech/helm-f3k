@@ -3,7 +3,22 @@ entries:
   api-platform:
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.586955753Z"
+    created: "2025-02-26T05:28:25.969950603Z"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.1.*
+    description: A Helm chart for Kubernetes
+    digest: fed45a86271a19dfcc089474820880e867b3a00e4c06a97f5ad95e685b069218
+    name: api-platform
+    type: application
+    urls:
+    - https://f3k-tech.github.io/helm-f3k/api-platform-0.1.18.tgz
+    version: 0.1.18
+  - apiVersion: v2
+    appVersion: "12"
+    created: "2025-02-26T05:28:25.966459964Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -18,7 +33,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.583437289Z"
+    created: "2025-02-26T05:28:25.962945671Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -33,7 +48,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.578882578Z"
+    created: "2025-02-26T05:28:25.958568897Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -48,7 +63,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.575360467Z"
+    created: "2025-02-26T05:28:25.955104617Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -63,7 +78,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.570843153Z"
+    created: "2025-02-26T05:28:25.950779452Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -78,7 +93,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.567320331Z"
+    created: "2025-02-26T05:28:25.947248529Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -93,7 +108,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.562690846Z"
+    created: "2025-02-26T05:28:25.942639398Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -108,7 +123,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.559118411Z"
+    created: "2025-02-26T05:28:25.93904192Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -123,7 +138,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.614277213Z"
+    created: "2025-02-26T05:28:25.996701743Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -138,7 +153,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.610798162Z"
+    created: "2025-02-26T05:28:25.993277899Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -153,7 +168,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.607242669Z"
+    created: "2025-02-26T05:28:25.989813058Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -168,7 +183,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.602806826Z"
+    created: "2025-02-26T05:28:25.985372498Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -183,7 +198,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.59926082Z"
+    created: "2025-02-26T05:28:25.981918077Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -198,7 +213,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.59480906Z"
+    created: "2025-02-26T05:28:25.977716843Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -213,7 +228,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-02-25T21:39:03.59133074Z"
+    created: "2025-02-26T05:28:25.974231875Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -229,7 +244,7 @@ entries:
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-25T21:39:03.615637428Z"
+    created: "2025-02-26T05:28:25.998626609Z"
     description: A Helm chart basic apps
     digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
     name: basic-app
@@ -239,7 +254,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-25T21:39:03.615061771Z"
+    created: "2025-02-26T05:28:25.998168094Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -249,7 +264,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2025-02-25T21:39:03.614635864Z"
+    created: "2025-02-26T05:28:25.997143476Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -260,7 +275,7 @@ entries:
   panorama-server:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-25T21:39:03.617894951Z"
+    created: "2025-02-26T05:28:25.999579866Z"
     description: Creates and serves 360 panoramas
     digest: 5088b12173ef17316ab69a3a177ced6cd9dc72bd7606024102812019f060f8a4
     name: panorama-server
@@ -270,7 +285,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: latest
-    created: "2025-02-25T21:39:03.617343739Z"
+    created: "2025-02-26T05:28:25.999046762Z"
     description: Creates and serves 360 panoramas
     digest: 59e0bd235224289d4b76203f315cbe2ed59121ef768eb86c347c9f3e7be1c356
     name: panorama-server
@@ -278,4 +293,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/panorama-server-0.1.13.tgz
     version: 0.1.13
-generated: "2025-02-25T21:39:03.554202293Z"
+generated: "2025-02-26T05:28:25.935120969Z"
