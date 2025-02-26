@@ -4,8 +4,6 @@ metadata:
   name: {{ include "api-platform.fullname" . }}-nginx-config
 data:
   default.conf: |
-    user symfony;
-    
     upstream php-fpm {
         server {{ include "api-platform.fullname" . }}:9000;
     }
