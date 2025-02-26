@@ -81,6 +81,11 @@ spec:
               value: "mysql://{{ .Values.mysql.auth.username }}:$(MYSQL_PASSWORD)@{{ include "api-platform.fullname" . }}-mysql:3306/{{ .Values.mysql.auth.database }}"
             - name: CORS_ALLOW_ORIGIN
               value: "*"
+          volumeMounts:
+            - name: public-files
+              mountPath: /var/www/public
+            - name: api-platform-jwt-keys
+              mountPath: /var/www/config/jwt
           {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
@@ -91,10 +96,9 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
-            - name: api-platform-jwt-keys
-              mountPath: /var/www/config/jwt
       volumes:
+        - name: public-files
+          emptyDir: {}
         - name: api-platform-jwt-keys
           {{- if .Values.persistence.jwtKeys.enabled }}
           persistentVolumeClaim:
