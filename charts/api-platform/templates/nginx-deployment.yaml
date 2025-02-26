@@ -20,6 +20,12 @@ spec:
             - -c
             - |
               until nc -z {{ include "api-platform.fullname" . }} 9000; do echo waiting for {{ include "api-platform.fullname" . }}; sleep 2; done;
+        - name: copy-public-files
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          command: ["/bin/sh", "-c", "mkdir -p /usr/share/nginx/html/bundles && cp -r /var/www/public/bundles/* /usr/share/nginx/html/bundles/"]
+          volumeMounts:
+            - name: public-files
+              mountPath: /usr/share/nginx/html
       containers:
         - name: nginx
           image: {{ .Values.nginx.image }}
@@ -30,7 +36,7 @@ spec:
               mountPath: /etc/nginx/conf.d/default.conf
               subPath: default.conf
             - name: public-files
-              mountPath: /var/www/public
+              mountPath: /usr/share/nginx/html
       volumes:
         - name: nginx-config
           configMap:
