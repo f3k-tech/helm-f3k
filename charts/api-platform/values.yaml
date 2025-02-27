@@ -79,11 +79,9 @@ mysqlIsAlive:
 mysql:
   enabled: true
   auth:
-    # Use "-" to generate a random root password
-    rootPassword: "-"
+    rootPassword: ""
     username: "api-platform"
-    # Use "-" to generate a random password
-    password: "-"
+    password: ""
     database: api-platform
     # existingSecret: "api-platfom-mysql"
   primary:
