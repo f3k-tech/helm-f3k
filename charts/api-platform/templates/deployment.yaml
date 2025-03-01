@@ -51,6 +51,14 @@ spec:
             - "-c"
             - {{ printf "until mysql --host=%s-mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
         {{- end }}
+        {{- if .Values.persistence.sqlite.enabled }}
+        - name: set-sqlite-owner
+          image: busybox
+          command: ["sh", "-c", "chown -R symfony:symfony /var/www/sqlite"]
+          volumeMounts:
+            - name: sqlite-storage
+              mountPath: /var/www/sqlite
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -100,7 +108,7 @@ spec:
             - name: jwt-keys
               mountPath: /var/www/config/jwt
               readOnly: true
-            {{- if .Values.persistence.sqlite.enabled }}
+            {{- if .Values.persistence.sqlite.enabled }}  
             - name: sqlite-storage
               mountPath: /var/www/sqlite
             {{- end }}
