@@ -54,7 +54,7 @@ spec:
         {{- if .Values.persistence.sqlite.enabled }}
         - name: set-sqlite-owner
           image: busybox
-          command: ["sh", "-c", "addgroup -S symfony && adduser -S symfony -G symfony && chown -R symfony:symfony /var/www/sqlite"]
+          command: ["sh", "-c", "chown -R 1000:1000 /var/www/sqlite"]
           volumeMounts:
             - name: sqlite-storage
               mountPath: /var/www/sqlite
