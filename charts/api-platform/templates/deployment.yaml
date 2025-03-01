@@ -78,11 +78,9 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-mysql
                   key: mysql-password
-            {{- end }}
-            {{- if .Values.mysql.enabled }}
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mysql.auth.username }}:$(MYSQL_PASSWORD)@{{ include "api-platform.fullname" . }}-mysql:3306/{{ .Values.mysql.auth.database }}"
-            {{- end }}  
+            {{- end }}
             - name: CORS_ALLOW_ORIGIN
               value: "*"
           {{- if .Values.livenessProbe.enabled }}

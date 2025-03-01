@@ -77,7 +77,7 @@ mysqlIsAlive:
     tag: "8.0.36"
 
 mysql:
-  enabled: true
+  enabled: false
   auth:
     rootPassword: ""
     username: "api-platform"
