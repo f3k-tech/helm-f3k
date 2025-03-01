@@ -100,6 +100,8 @@ spec:
             - name: jwt-keys
               mountPath: /var/www/config/jwt
               readOnly: true
+            - name: sqlite-storage
+              mountPath: /var/www/sqlite
       volumes:
         - name: php-ini-config
           configMap:
@@ -107,6 +109,11 @@ spec:
         - name: jwt-keys
           secret:
             secretName: {{ include "api-platform.fullname" . }}-jwt-keys
+        {{- if .Values.persistence.sqlite.enabled }}
+        - name: sqlite-storage
+          persistentVolumeClaim:
+            claimName: {{ include "api-platform.fullname" . }}-sqlite
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -93,6 +93,15 @@ mysql:
       size: 10Gi
       annotations: {}
 
+persistence:
+  sqlite:
+    enabled: false
+    # existingClaim: api-platform-sqlite
+    annotations: {}
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
 resources: {}
 
 livenessProbe:
