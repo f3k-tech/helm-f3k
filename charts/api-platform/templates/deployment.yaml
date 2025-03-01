@@ -100,8 +100,10 @@ spec:
             - name: jwt-keys
               mountPath: /var/www/config/jwt
               readOnly: true
+            {{- if .Values.persistence.sqlite.enabled }}
             - name: sqlite-storage
               mountPath: /var/www/sqlite
+            {{- end }}
       volumes:
         - name: php-ini-config
           configMap:
