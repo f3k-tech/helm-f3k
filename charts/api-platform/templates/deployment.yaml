@@ -54,7 +54,7 @@ spec:
         {{- if .Values.persistence.sqlite.enabled }}
         - name: set-sqlite-owner
           image: busybox
-          command: ["sh", "-c", "chown -R symfony:symfony /var/www/sqlite"]
+          command: ["sh", "-c", "addgroup -S symfony && adduser -S symfony -G symfony && chown -R symfony:symfony /var/www/sqlite"]
           volumeMounts:
             - name: sqlite-storage
               mountPath: /var/www/sqlite
@@ -108,10 +108,8 @@ spec:
             - name: jwt-keys
               mountPath: /var/www/config/jwt
               readOnly: true
-            {{- if .Values.persistence.sqlite.enabled }}  
             - name: sqlite-storage
               mountPath: /var/www/sqlite
-            {{- end }}
       volumes:
         - name: php-ini-config
           configMap:
@@ -123,6 +121,9 @@ spec:
         - name: sqlite-storage
           persistentVolumeClaim:
             claimName: {{ include "api-platform.fullname" . }}-sqlite
+        {{- else }}
+        - name: sqlite-storage
+          emptyDir: {}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
