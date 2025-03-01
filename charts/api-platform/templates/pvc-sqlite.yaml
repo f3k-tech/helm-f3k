@@ -1,0 +1,31 @@
+{{- if .Values.persistence.sqlite.enabled -}}
+{{- if not .Values.persistence.sqlite.existingClaim -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "api-platform.fullname" . }}-sqlite
+  labels:
+    app.kubernetes.io/name: {{ include "api-platform.name" . }}
+    helm.sh/chart: {{ include "api-platform.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/component: app
+{{- if .Values.persistence.sqlite.annotations }}
+  annotations:
+{{ toYaml .Values.persistence.sqlite.annotations | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.sqlite.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.sqlite.size | quote }}
+{{- if .Values.persistence.sqlite.storageClass }}
+{{- if (eq "-" .Values.persistence.sqlite.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistence.sqlite.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}
+{{- end -}}
