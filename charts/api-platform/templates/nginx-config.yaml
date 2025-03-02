@@ -5,7 +5,7 @@ metadata:
 data:
   default.conf: |
     upstream php-fpm {
-        server {{ include "api-platform.fullname" . }}:{{ .Values.service.port }};
+        server {{ include "api-platform.fullname" . }}:9000;
     }
 
     server {
@@ -16,13 +16,13 @@ data:
 
         index index.php index.html index.htm;
 
-        client_max_body_size {{ .Values.nginx.config.client_max_body_size }};
-        client_body_timeout {{ .Values.nginx.config.client_body_timeout }};
-        send_timeout {{ .Values.nginx.config.send_timeout }};
-        keepalive_timeout {{ .Values.nginx.config.keepalive_timeout }};
+        client_max_body_size 16G;         
+        client_body_timeout 3600s;        
+        send_timeout 3600s;               
+        keepalive_timeout 60s;   
 
         location / {
-            try_files $uri $uri/ /index.php$is_args$args;
+            try_files $uri /index.php$is_args$args;
 
             add_header 'Access-Control-Allow-Origin' '*' always;
             add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
@@ -35,7 +35,7 @@ data:
                 add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type';
                 add_header 'Access-Control-Allow-Credentials' 'true';
                 return 204;
-            }
+            } 
         }
 
         location ~ \.php$ {
@@ -43,8 +43,6 @@ data:
             fastcgi_pass php-fpm;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_read_timeout 3600s;
-            fastcgi_param PHP_ADMIN_VALUE "open_basedir=/var/www/public:/tmp";
         }
 
         location ~ /\.ht {
