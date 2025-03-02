@@ -5,7 +5,7 @@ metadata:
 data:
   default.conf: |
     upstream php-fpm {
-        server {{ include "api-platform.fullname" . }}:9000;
+        server {{ include "api-platform.fullname" . }}-php-fpm:9000;
     }
 
     server {
@@ -13,29 +13,29 @@ data:
         server_name _;
 
         root /var/www/public;
-
         index index.php index.html index.htm;
 
-        client_max_body_size 16G;         
+        client_max_body_size 1G;         
         client_body_timeout 3600s;        
         send_timeout 3600s;               
-        keepalive_timeout 60s;   
+        keepalive_timeout 60s;
 
+        # CORS Headers
+        set $cors_origin "*";
+        set $cors_methods "GET, POST, OPTIONS";
+        set $cors_headers "Authorization, Content-Type";
+        
         location / {
             try_files $uri /index.php$is_args$args;
 
-            add_header 'Access-Control-Allow-Origin' '*' always;
-            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
-            add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type' always;
+            add_header 'Access-Control-Allow-Origin' "$cors_origin" always;
+            add_header 'Access-Control-Allow-Methods' "$cors_methods" always;
+            add_header 'Access-Control-Allow-Headers' "$cors_headers" always;
             add_header 'Access-Control-Allow-Credentials' 'true' always;
 
             if ($request_method = 'OPTIONS') {
-                add_header 'Access-Control-Allow-Origin' '*';
-                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-                add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type';
-                add_header 'Access-Control-Allow-Credentials' 'true';
                 return 204;
-            } 
+            }
         }
 
         location ~ \.php$ {
@@ -43,6 +43,8 @@ data:
             fastcgi_pass php-fpm;
             fastcgi_index index.php;
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_read_timeout 3600s;
+            fastcgi_param PHP_ADMIN_VALUE "open_basedir=/var/www/public:/tmp";
         }
 
         location ~ /\.ht {
