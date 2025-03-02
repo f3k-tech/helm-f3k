@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "api-platform.fullname" . }}-nginx-config
+  name: {{ include "api-platform.fullname" . }}-nginx-config-swagger
 data:
   default.conf: |
     upstream php-fpm {
