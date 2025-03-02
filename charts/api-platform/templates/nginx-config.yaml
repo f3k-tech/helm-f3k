@@ -5,7 +5,7 @@ metadata:
 data:
   default.conf: |
     upstream php-fpm {
-        server {{ include "api-platform.fullname" . }}-php-fpm:9000;
+        server {{ include "api-platform.fullname" . }}:{{ .Values.service.port }};
     }
 
     server {
