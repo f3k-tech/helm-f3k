@@ -24,7 +24,7 @@ env: []
 
 service:
   type: ClusterIP
-  port: 9000
+  port: 80
 
 ingress:
   enabled: false
@@ -43,18 +43,6 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
-nginx:
-  enabled: true
-  image:
-    repository: nginx
-    tag: latest
-  service:
-    ports:
-      http: 80
-  config:
-    client_max_body_size: 16G
-    timeout: 3600s
 
 php:
   config:
