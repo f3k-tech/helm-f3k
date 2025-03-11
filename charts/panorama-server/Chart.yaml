@@ -2,5 +2,5 @@ apiVersion: v2
 name: panorama-server
 description: Creates and serves 360 panoramas
 type: application
-version: 0.2.4
+version: 0.3.0
 appVersion: "latest"
