@@ -26,6 +26,10 @@ data:
         fastcgi_read_timeout {{ .Values.nginx.config.timeout }};
         fastcgi_send_timeout {{ .Values.nginx.config.timeout }};
 
+        location ~* \.(webp)$ {
+            try_files $uri =404;
+        }
+
         location / {
             try_files $uri /index.php$is_args$args;
 
