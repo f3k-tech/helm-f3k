@@ -18,6 +18,10 @@ args: []
   # - --update-panoramas
   # - --slice-images
 
+env: []
+  # - name: SERVER_NAME
+  #   value: "example.com"
+
 service:
   type: ClusterIP
   port: 9000
