@@ -27,7 +27,7 @@ data:
         fastcgi_send_timeout {{ .Values.nginx.config.timeout }};
 
         location ~* \.(webp)$ {
-            try_files $uri =404;
+            try_files $uri $uri/ =404;
         }
 
         location / {
