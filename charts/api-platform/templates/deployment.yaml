@@ -34,22 +34,22 @@ spec:
         {{- with .Values.extraInitContainers }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-        {{- if and .Values.mysql.enabled .Values.mysqlIsAlive.enabled }}
-        - name: mysql-isalive
-          image: "{{ .Values.mysqlIsAlive.image.repository }}:{{ .Values.mysqlIsAlive.image.tag }}"
-          imagePullPolicy: {{ .Values.mysqlIsAlive.image.pullPolicy }}
+        {{- if and .Values.mariadb.enabled .Values.mariadbIsAlive.enabled }}
+        - name: mariadb-isalive
+          image: "{{ .Values.mariadbIsAlive.image.repository }}:{{ .Values.mariadbIsAlive.image.tag }}"
+          imagePullPolicy: {{ .Values.mariadbIsAlive.image.pullPolicy }}
           env:
-            - name: MYSQL_USER
-              value: {{ .Values.mysql.auth.username }}
-            - name: MYSQL_PASSWORD
+            - name: MARIADB_USER
+              value: {{ .Values.mariadb.auth.username }}
+            - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-mysql
-                  key: mysql-password
+                  name: {{ include "api-platform.fullname" . }}-mariadb
+                  key: mariadb-password
           command:
             - "sh"
             - "-c"
-            - {{ printf "until mysql --host=%s-mariadb --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mysql; sleep 2; done;" .Release.Name }}
+            - {{ printf "until mariadb --host=%s-mariadb --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mariadb; sleep 2; done;" .Release.Name }}
         {{- end }}
         {{- if .Values.persistence.sqlite.enabled }}
         - name: set-sqlite-owner
@@ -80,14 +80,14 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-app
                   key: jwt-passphrase
-            {{- if .Values.mysql.enabled }}
-            - name: MYSQL_PASSWORD
+            {{- if .Values.mariadb.enabled }}
+            - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-mysql
-                  key: mysql-password
+                  name: {{ include "api-platform.fullname" . }}-mariadb
+                  key: mariadb-password
             - name: DATABASE_URL
-              value: "mysql://{{ .Values.mysql.auth.username }}:$(MYSQL_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mysql.auth.database }}"
+              value: "mariadb://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}"
             {{- end }}
             - name: CORS_ALLOW_ORIGIN
               value: "*"

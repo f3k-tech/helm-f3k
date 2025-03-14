@@ -69,29 +69,12 @@ php:
     max_file_uploads: 20
     default_socket_timeout: 3600
 
-mysqlIsAlive:
+mariadbIsAlive:
   enabled: false
   image:
-    repository: bitnami/mysql
+    repository: bitnami/mariadb
     pullPolicy: IfNotPresent
-    tag: "8.0.36"
-
-mysql:
-  enabled: false
-  auth:
-    rootPassword: ""
-    username: "api-platform"
-    password: ""
-    database: api-platform
-    # existingSecret: "api-platfom-mysql"
-  primary:
-    persistence:
-      enabled: false
-      # storageClass: "-"
-      # existingClaim: api-platform-mysql
-      accessMode: ReadWriteOnce
-      size: 10Gi
-      annotations: {}
+    tag: "10.6.12-debian-11-r16"
 
 mariadb:
   enabled: false
@@ -100,12 +83,12 @@ mariadb:
     username: "api-platform"
     password: ""
     database: api-platform
-    # existingSecret: "api-platfom-mysql"
+    # existingSecret: "api-platfom-mariadb"
   primary:
     persistence:
       enabled: false
       # storageClass: "-"
-      # existingClaim: api-platform-mysql
+      # existingClaim: api-platform-mariadb
       accessMode: ReadWriteOnce
       size: 10Gi
       annotations: {}
