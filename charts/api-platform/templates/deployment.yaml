@@ -87,7 +87,7 @@ spec:
                   name: {{ include "api-platform.fullname" . }}-mariadb
                   key: mariadb-password
             - name: DATABASE_URL
-              value: "mariadb://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}"
+              value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}"
             {{- end }}
             - name: CORS_ALLOW_ORIGIN
               value: "*"
