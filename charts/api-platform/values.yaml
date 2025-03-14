@@ -70,13 +70,30 @@ php:
     default_socket_timeout: 3600
 
 mysqlIsAlive:
-  enabled: true
+  enabled: false
   image:
     repository: bitnami/mysql
     pullPolicy: IfNotPresent
     tag: "8.0.36"
 
 mysql:
+  enabled: false
+  auth:
+    rootPassword: ""
+    username: "api-platform"
+    password: ""
+    database: api-platform
+    # existingSecret: "api-platfom-mysql"
+  primary:
+    persistence:
+      enabled: false
+      # storageClass: "-"
+      # existingClaim: api-platform-mysql
+      accessMode: ReadWriteOnce
+      size: 10Gi
+      annotations: {}
+
+mariadb:
   enabled: false
   auth:
     rootPassword: ""
