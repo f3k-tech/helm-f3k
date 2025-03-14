@@ -70,7 +70,7 @@ php:
     default_socket_timeout: 3600
 
 mariadbIsAlive:
-  enabled: false
+  enabled: true
   image:
     repository: bitnami/mariadb
     pullPolicy: IfNotPresent
