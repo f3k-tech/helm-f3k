@@ -85,6 +85,7 @@ spec:
               
               if [ "$TABLE_COUNT" -eq 0 ]; then
                 echo "No existing entries found. Importing database..."
+                apt -y update && apt install -y curl
                 curl -o /tmp/dump.sql ${SQL_DUMP_URL}
                 mariadb --host="${MARIADB_TARGET_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
               else
