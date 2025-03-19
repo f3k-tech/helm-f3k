@@ -70,7 +70,7 @@ importDatabase:
     repository: bitnami/mariadb
     tag: "10.6.12-debian-11-r16"
     pullPolicy: IfNotPresent
-    sourceHost: https://example.com
+  sourceHost: https://example.com
 
 
 mariadb:
