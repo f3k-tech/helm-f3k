@@ -47,18 +47,6 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 
-nginx:
-  enabled: true
-  image: nginx:latest
-  service:
-    ports:
-      http: 80
-  config:
-    client_max_body_size: 16G
-    client_body_timeout: 3600s
-    send_timeout: 3600s
-    keepalive_timeout: 60s
-
 php:
   config:
     max_execution_time: 3600
