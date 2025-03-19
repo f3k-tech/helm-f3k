@@ -71,8 +71,12 @@ spec:
                 secretKeyRef:
                   name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname" . }}-mariadb{{- end }}"
                   key: mariadb-password
+            - name: MARIADB_TARGET_HOST
+              value: "{{ .Release.Name }}-mariadb"
             - name: MARIADB_SOURCE_HOST
-              value: "{{ .Values.importDatabase.sourceHost }}"
+              value: "{{ .Values.importDatabase.sourceDatabase.host }}"
+            - name: MARIADB_SOURCE_PORT
+              value: "{{ .Values.importDatabase.sourceDatabase.port }}"
             - name: MARIADB_DATABASE
               value: "{{ .Values.mariadb.auth.database }}"
           command:
@@ -83,8 +87,8 @@ spec:
               
               if [ "$TABLE_COUNT" -eq 0 ]; then
                 echo "No existing entries found. Importing database..."
-                mariadb --host="${MARIADB_SOURCE_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" > /tmp/dump.sql
-                mariadb --host="{{ .Release.Name }}-mariadb" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
+                mariadb --host="${MARIADB_SOURCE_HOST}" --PORT="${MARIADB_SOURCE_PORT}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" > /tmp/dump.sql
+                mariadb --host="${MARIADB_TARGET_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
               else
                 echo "Existing database entries found. Skipping import."
               fi
