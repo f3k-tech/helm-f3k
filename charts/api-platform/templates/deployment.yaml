@@ -84,9 +84,10 @@ spec:
               TABLE_COUNT=$(mariadb --host={{ .Release.Name }}-mariadb --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --database=${MARIADB_DATABASE} --execute="SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='${MARIADB_DATABASE}';" | tail -n 1)
               
               if [ "$TABLE_COUNT" -eq 0 ]; then
-                echo "No existing entries found. Importing database..."
+                echo "No existing entries found. Downloading database..."
                 apt -y update && apt install -y curl
                 curl -o /tmp/dump.sql ${SQL_DUMP_URL}
+                echo "Database downloaded. Importing..."
                 mariadb --host="${MARIADB_TARGET_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
               else
                 echo "Existing database entries found. Skipping import."
