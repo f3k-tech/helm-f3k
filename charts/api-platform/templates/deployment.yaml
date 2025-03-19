@@ -44,7 +44,7 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-mariadb
+                  name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api-platform.fullname" . }}-mariadb{{ end }}
                   key: mariadb-password
           command:
             - "sh"
@@ -84,7 +84,7 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-mariadb
+                  name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api-platform.fullname" . }}-mariadb{{ end }}
                   key: mariadb-password
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}"
