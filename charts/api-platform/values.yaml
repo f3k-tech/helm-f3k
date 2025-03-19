@@ -62,7 +62,15 @@ mariadbIsAlive:
   image:
     repository: bitnami/mariadb
     pullPolicy: IfNotPresent
-    tag: "10.6.12-debian-11-r16"
+    tag: "latest"
+
+importDatabase:
+  enabled: false
+  image:
+    repository: bitnami/mariadb
+    tag: latest
+    pullPolicy: IfNotPresent
+    sourceHost: https://example.com
 
 mariadb:
   enabled: false

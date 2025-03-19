@@ -59,6 +59,36 @@ spec:
             - name: sqlite-storage
               mountPath: /var/www/sqlite
         {{- end }}
+        {{- if .Values.importDatabase.enabled }}
+        - name: import-database
+          image: "{{ .Values.importDatabase.image.repository }}:{{ .Values.importDatabase.image.tag }}"
+          imagePullPolicy: "{{ .Values.importDatabase.image.pullPolicy }}"
+          env:
+            - name: MARIADB_USER
+              value: "{{ .Values.mariadb.auth.username }}"
+            - name: MARIADB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname" . }}-mariadb{{- end }}"
+                  key: mariadb-password
+            - name: MARIADB_SOURCE_HOST
+              value: "{{ .Values.importDatabase.sourceHost }}"
+            - name: MARIADB_DATABASE
+              value: "{{ .Values.mariadb.auth.database }}"
+          command:
+            - "sh"
+            - "-c"
+            - |
+              TABLE_COUNT=$(mariadb --host={{ .Release.Name }}-mariadb --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --database=${MARIADB_DATABASE} --execute="SELECT COUNT(*) FROM information_schema.tables WHERE table_schema='${MARIADB_DATABASE}';" | tail -n 1)
+              
+              if [ "$TABLE_COUNT" -eq 0 ]; then
+                echo "No existing entries found. Importing database..."
+                mariadb --host="${MARIADB_SOURCE_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" > /tmp/dump.sql
+                mariadb --host="{{ .Release.Name }}-mariadb" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
+              else
+                echo "Existing database entries found. Skipping import."
+              fi
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
