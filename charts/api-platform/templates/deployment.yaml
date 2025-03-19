@@ -87,7 +87,7 @@ spec:
               
               if [ "$TABLE_COUNT" -eq 0 ]; then
                 echo "No existing entries found. Importing database..."
-                mariadb --host="${MARIADB_SOURCE_HOST}" --PORT="${MARIADB_SOURCE_PORT}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" > /tmp/dump.sql
+                mariadb --host="${MARIADB_SOURCE_HOST}" --port="${MARIADB_SOURCE_PORT}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" > /tmp/dump.sql
                 mariadb --host="${MARIADB_TARGET_HOST}" --user="${MARIADB_USER}" --password="${MARIADB_PASSWORD}" --database="${MARIADB_DATABASE}" < /tmp/dump.sql
               else
                 echo "Existing database entries found. Skipping import."
