@@ -60,17 +60,18 @@ php:
 mariadbIsAlive:
   enabled: true
   image:
+    tag: "10.6.12-debian-11-r16"
     repository: bitnami/mariadb
     pullPolicy: IfNotPresent
-    tag: "latest"
 
 importDatabase:
   enabled: false
   image:
     repository: bitnami/mariadb
-    tag: latest
+    tag: "10.6.12-debian-11-r16"
     pullPolicy: IfNotPresent
     sourceHost: https://example.com
+
 
 mariadb:
   enabled: false
