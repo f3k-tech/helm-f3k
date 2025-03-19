@@ -70,10 +70,7 @@ importDatabase:
     repository: bitnami/mariadb
     tag: "10.6.12-debian-11-r16"
     pullPolicy: IfNotPresent
-  sourceDatabase:
-    host: "example.com"
-    port: 3306
-
+  sqlDumpUrl: example.com/dump.sql
 
 mariadb:
   enabled: false
@@ -84,6 +81,9 @@ mariadb:
     database: api-platform
     # existingSecret: "api-platfom-mariadb"
   primary:
+    service:
+      ports:
+        mysql: "3306"
     persistence:
       enabled: false
       # storageClass: "-"
