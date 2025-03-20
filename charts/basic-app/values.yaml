@@ -18,11 +18,11 @@ fullnameOverride: ""
 env: []
 
 customAppConfigMap:
-  enabled: true
+  enabled: false
   mountPath: "/foo/bar.js"
-  subPath: "bar.js"
-  data:
-    bar.js: 'const settings = { urls: { apiUrl: "https://api.example.com" } };'
+  # subPath: "bar.js"
+  data: {}
+    # bar.js: 'const settings = { urls: { apiUrl: "https://api.example.com" } };'
 
 serviceAccount:
   # Specifies whether a service account should be created
