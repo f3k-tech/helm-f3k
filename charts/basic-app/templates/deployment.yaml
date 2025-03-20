@@ -50,6 +50,9 @@ spec:
             {{- if .Values.customAppConfigMap.enabled -}}
             - name: custom-app-config
               mountPath: {{ .Values.customAppConfigMap.mountPath }}
+              {{- if .Values.customAppConfigMap.subPath -}}
+              subPath: {{ .Values.customAppConfigMap.subPath }}
+              {{- end }}
             {{- end }}
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
