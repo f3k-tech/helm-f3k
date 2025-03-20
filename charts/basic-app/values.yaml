@@ -17,6 +17,12 @@ fullnameOverride: ""
 
 env: []
 
+customAppConfigMap:
+  enabled: false
+  data:
+    settings.js: |
+      const settings = { urls: { apiUrl: "https://api.example.com" } };
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true

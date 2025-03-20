@@ -55,6 +55,13 @@ spec:
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
+          volumeMounts:
+            - name: custom-app-config
+              mountPath: {{ .Values.customAppConfigMap.mountPath }}
+      volumes:
+        - name: custom-app-config
+          configMap:
+            name: custom-app-config-map
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
