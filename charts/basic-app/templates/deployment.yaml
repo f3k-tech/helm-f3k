@@ -49,9 +49,9 @@ spec:
           volumeMounts:
             {{- if .Values.customAppConfigMap.enabled -}}
             - name: custom-app-config
-              mountPath: {{ .Values.customAppConfigMap.mountPath }}
+              mountPath: "{{ .Values.customAppConfigMap.mountPath }}"
               {{- if .Values.customAppConfigMap.subPath -}}
-              subPath: {{ .Values.customAppConfigMap.subPath }}
+              subPath: "{{ .Values.customAppConfigMap.subPath }}"
               {{- end }}
             {{- end }}
             {{- with .Values.volumeMounts }}
