@@ -3,7 +3,7 @@ entries:
   api-platform:
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.66222839Z"
+    created: "2025-03-20T07:50:46.553755166Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -18,7 +18,7 @@ entries:
     version: 0.2.29
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.65581801Z"
+    created: "2025-03-20T07:50:46.547328452Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -33,7 +33,7 @@ entries:
     version: 0.2.28
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.648736813Z"
+    created: "2025-03-20T07:50:46.543784022Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -48,7 +48,7 @@ entries:
     version: 0.2.27
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.643645112Z"
+    created: "2025-03-20T07:50:46.53827706Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -63,7 +63,7 @@ entries:
     version: 0.2.26
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.639057534Z"
+    created: "2025-03-20T07:50:46.531728139Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -78,7 +78,7 @@ entries:
     version: 0.2.25
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.635723563Z"
+    created: "2025-03-20T07:50:46.527413541Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -93,7 +93,7 @@ entries:
     version: 0.2.24
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.632476264Z"
+    created: "2025-03-20T07:50:46.52286233Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -108,7 +108,7 @@ entries:
     version: 0.2.23
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.628268877Z"
+    created: "2025-03-20T07:50:46.519520609Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -123,7 +123,7 @@ entries:
     version: 0.2.22
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.625003714Z"
+    created: "2025-03-20T07:50:46.515238554Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -138,7 +138,7 @@ entries:
     version: 0.2.21
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.620815833Z"
+    created: "2025-03-20T07:50:46.51194865Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -153,7 +153,7 @@ entries:
     version: 0.2.20
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.61244279Z"
+    created: "2025-03-20T07:50:46.503267685Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -168,7 +168,7 @@ entries:
     version: 0.2.19
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.609144656Z"
+    created: "2025-03-20T07:50:46.499611046Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -183,7 +183,7 @@ entries:
     version: 0.2.18
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.605801007Z"
+    created: "2025-03-20T07:50:46.495163628Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -198,7 +198,7 @@ entries:
     version: 0.2.17
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.601501857Z"
+    created: "2025-03-20T07:50:46.491741927Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -213,7 +213,7 @@ entries:
     version: 0.2.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.598202811Z"
+    created: "2025-03-20T07:50:46.48771015Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -228,7 +228,7 @@ entries:
     version: 0.2.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.59393714Z"
+    created: "2025-03-20T07:50:46.483778347Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -243,7 +243,7 @@ entries:
     version: 0.2.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.590612637Z"
+    created: "2025-03-20T07:50:46.480398395Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -258,7 +258,7 @@ entries:
     version: 0.2.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.586666316Z"
+    created: "2025-03-20T07:50:46.475976397Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -273,7 +273,7 @@ entries:
     version: 0.2.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.582796602Z"
+    created: "2025-03-20T07:50:46.472515553Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -288,7 +288,7 @@ entries:
     version: 0.2.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.579243821Z"
+    created: "2025-03-20T07:50:46.467731679Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -303,7 +303,7 @@ entries:
     version: 0.2.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.692845995Z"
+    created: "2025-03-20T07:50:46.585685957Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -318,7 +318,7 @@ entries:
     version: 0.2.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.68922706Z"
+    created: "2025-03-20T07:50:46.581019239Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -333,7 +333,7 @@ entries:
     version: 0.2.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.68408182Z"
+    created: "2025-03-20T07:50:46.577388478Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -348,7 +348,7 @@ entries:
     version: 0.2.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.680456373Z"
+    created: "2025-03-20T07:50:46.572864835Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -363,7 +363,7 @@ entries:
     version: 0.2.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.675676393Z"
+    created: "2025-03-20T07:50:46.569128226Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -378,7 +378,7 @@ entries:
     version: 0.2.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.672065483Z"
+    created: "2025-03-20T07:50:46.564533996Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -393,7 +393,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.667820489Z"
+    created: "2025-03-20T07:50:46.560678897Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -408,7 +408,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.617339876Z"
+    created: "2025-03-20T07:50:46.508396666Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -423,7 +423,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.574783732Z"
+    created: "2025-03-20T07:50:46.464073988Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -438,7 +438,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.571233907Z"
+    created: "2025-03-20T07:50:46.460447386Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -453,7 +453,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.543089924Z"
+    created: "2025-03-20T07:50:46.43191665Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -468,7 +468,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.538592519Z"
+    created: "2025-03-20T07:50:46.427409265Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -483,7 +483,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.534882755Z"
+    created: "2025-03-20T07:50:46.423730704Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -498,7 +498,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.530327637Z"
+    created: "2025-03-20T07:50:46.419081329Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -513,7 +513,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.525691609Z"
+    created: "2025-03-20T07:50:46.415212073Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -528,7 +528,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.521911863Z"
+    created: "2025-03-20T07:50:46.411347355Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -543,7 +543,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.516095224Z"
+    created: "2025-03-20T07:50:46.406310852Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -558,7 +558,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.566789259Z"
+    created: "2025-03-20T07:50:46.455809756Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -573,7 +573,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.563249984Z"
+    created: "2025-03-20T07:50:46.452158668Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -588,7 +588,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.558290617Z"
+    created: "2025-03-20T07:50:46.447241443Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -603,7 +603,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.554757623Z"
+    created: "2025-03-20T07:50:46.443649144Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -618,7 +618,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.551248934Z"
+    created: "2025-03-20T07:50:46.440093373Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -633,7 +633,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2025-03-20T07:47:36.546646281Z"
+    created: "2025-03-20T07:50:46.435441863Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -649,7 +649,7 @@ entries:
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.694265993Z"
+    created: "2025-03-20T07:50:46.587173655Z"
     description: A Helm chart basic apps
     digest: 077a60c71e234b29653bfab349af4fa4ce15aa6b6a4b8935001075ff0bb98939
     name: basic-app
@@ -659,7 +659,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.69390123Z"
+    created: "2025-03-20T07:50:46.586811098Z"
     description: A Helm chart basic apps
     digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
     name: basic-app
@@ -669,7 +669,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.693558839Z"
+    created: "2025-03-20T07:50:46.586428624Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -679,7 +679,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2025-03-20T07:47:36.69321194Z"
+    created: "2025-03-20T07:50:46.586076246Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -690,7 +690,7 @@ entries:
   panorama-server:
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.699839038Z"
+    created: "2025-03-20T07:50:46.590756196Z"
     description: Creates and serves 360 panoramas
     digest: b297c7eb08f00c89b27878398f40d5b8ebb45daf5b15c1dff2a19699e73cd4af
     name: panorama-server
@@ -700,7 +700,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.698816894Z"
+    created: "2025-03-20T07:50:46.590300825Z"
     description: Creates and serves 360 panoramas
     digest: 8c873d4e7745f2f539104a1c27d62cee0f058be760b8093671757cae6ca19434
     name: panorama-server
@@ -710,7 +710,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.697351189Z"
+    created: "2025-03-20T07:50:46.589760607Z"
     description: Creates and serves 360 panoramas
     digest: 9036ada390f7d9911ad05abc8f880d7a869ddab8b1f8b415785b45ea614e738c
     name: panorama-server
@@ -720,7 +720,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.696298087Z"
+    created: "2025-03-20T07:50:46.589240616Z"
     description: Creates and serves 360 panoramas
     digest: 98d041fe3ffb0cf9355e768921ed93f71748a20f582a8223c8e4fdd337cfd41c
     name: panorama-server
@@ -730,7 +730,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.69574921Z"
+    created: "2025-03-20T07:50:46.588705416Z"
     description: Creates and serves 360 panoramas
     digest: 69fdbb750700539e1c2ed331139b4e07e821593ad55ad4f3af7b449dd47414e9
     name: panorama-server
@@ -740,7 +740,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.695217424Z"
+    created: "2025-03-20T07:50:46.58818281Z"
     description: Creates and serves 360 panoramas
     digest: 5088b12173ef17316ab69a3a177ced6cd9dc72bd7606024102812019f060f8a4
     name: panorama-server
@@ -750,7 +750,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: latest
-    created: "2025-03-20T07:47:36.69468119Z"
+    created: "2025-03-20T07:50:46.587609249Z"
     description: Creates and serves 360 panoramas
     digest: 59e0bd235224289d4b76203f315cbe2ed59121ef768eb86c347c9f3e7be1c356
     name: panorama-server
@@ -758,4 +758,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/panorama-server-0.1.13.tgz
     version: 0.1.13
-generated: "2025-03-20T07:47:36.511970983Z"
+generated: "2025-03-20T07:50:46.402046889Z"
