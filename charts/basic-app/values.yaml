@@ -20,7 +20,7 @@ env: []
 customAppConfigMap:
   enabled: false
   mountPath: "/foo/bar.js"
-  # subPath: "bar.js"
+  subPath: "bar.js"
   data: {}
     # bar.js: 'const settings = { urls: { apiUrl: "https://api.example.com" } };'
 
