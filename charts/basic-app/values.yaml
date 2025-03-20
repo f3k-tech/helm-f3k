@@ -20,9 +20,10 @@ env: []
 customAppConfigMap:
   enabled: false
   mountPath: "/foo/bar.js"
-  subPath: "bar.js"
-  content: |
-    const settings = { urls: { apiUrl: "https://api.example.com" } };
+  subPath: ""
+  data: |
+    settings.js:
+      const settings = { urls: { apiUrl: "https://api.example.com" } };
 
 serviceAccount:
   # Specifies whether a service account should be created
