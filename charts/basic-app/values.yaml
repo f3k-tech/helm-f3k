@@ -18,7 +18,7 @@ fullnameOverride: ""
 env: []
 
 customAppConfigMap:
-  enabled: false
+  enabled: true
   mountPath: "/foo/bar.js"
   subPath: "bar.js"
   data:
