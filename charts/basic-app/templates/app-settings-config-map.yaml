@@ -1,7 +1,10 @@
-{{- if .Values.customAppConfigMap.enabled -}}
+{{- if .Values.customAppConfigMap.enabled }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: custom-app-config-map
-data: {{ .Values.customAppConfigMap.data }}
+data:
+{{- range $key, $value := .Values.customAppConfigMap.data }}
+  {{ $key }}: {{ $value | quote }}
+{{- end }}
 {{- end }}
