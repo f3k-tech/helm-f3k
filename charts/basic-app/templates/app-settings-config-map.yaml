@@ -4,5 +4,5 @@ kind: ConfigMap
 metadata:
   name: custom-app-config-map
 data:
-  {{ .Values.customAppConfigMap.data | nindent 2 }}
+  {{ .Values.customAppConfigMap.subPath | nindent 2 }}: {{ .Values.customAppConfigMap.content }}
 {{- end }}
