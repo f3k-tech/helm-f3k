@@ -39,6 +39,8 @@ spec:
           image: "{{ .Values.mariadbIsAlive.image.repository }}:{{ .Values.mariadbIsAlive.image.tag }}"
           imagePullPolicy: {{ .Values.mariadbIsAlive.image.pullPolicy }}
           env:
+            - name: SSL
+              value: {{ .Values.mariadbIsAlive.ssl }}
             - name: MARIADB_USER
               value: {{ .Values.mariadb.auth.username }}
             - name: MARIADB_PASSWORD
@@ -46,10 +48,8 @@ spec:
                 secretKeyRef:
                   name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api-platform.fullname" . }}-mariadb{{ end }}
                   key: mariadb-password
-          command:
-            - "sh"
-            - "-c"
-            - {{ printf "until mariadb --host=%s-mariadb --user=${MARIADB_USER} --password=${MARIADB_PASSWORD} --execute=\"SELECT 1;\"; do echo waiting for mariadb; sleep 2; done;" .Release.Name }}
+            - name: MARIADB_HOST
+              value: "{{ .Release.Name }}-mariadb"
         {{- end }}
         {{- if .Values.persistence.sqlite.enabled }}
         - name: set-sqlite-owner

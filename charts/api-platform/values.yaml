@@ -59,9 +59,10 @@ php:
 
 mariadbIsAlive:
   enabled: true
+  ssl: false
   image:
-    tag: "10.6.12-debian-11-r16"
-    repository: bitnami/mariadb
+    tag: "latest"
+    repository: registry.git.f3k.tech/f3k/custom-images/mariadb-isalive
     pullPolicy: IfNotPresent
 
 importDatabase:
