@@ -64,8 +64,8 @@ spec:
           image: "{{ .Values.importDatabase.image.repository }}:{{ .Values.importDatabase.image.tag }}"
           imagePullPolicy: "{{ .Values.importDatabase.image.pullPolicy }}"
           env:
-            - name: SSL_MODE
-              value: "{{ .Values.importDatabase.sslMode }}"
+            - name: SSL
+              value: "{{ .Values.importDatabase.ssl }}"
             - name: MARIADB_USER
               value: "{{ .Values.mariadb.auth.username }}"
             - name: MARIADB_PASSWORD
