@@ -66,6 +66,7 @@ mariadbIsAlive:
 
 importDatabase:
   enabled: false
+  sslMode: "DISABLED"
   image:
     repository: registry.git.f3k.tech/f3k/custom-images/import-database
     tag: "10.6.12-debian-11-r16"
