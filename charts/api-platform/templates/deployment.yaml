@@ -104,11 +104,17 @@ spec:
                   name: {{ include "api-platform.fullname" . }}-app
                   key: jwt-passphrase
             {{- if .Values.mariadb.enabled }}
+            - name: MARIADB_USER
+              value: "{{ .Values.mariadb.auth.username }}"
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api-platform.fullname" . }}-mariadb{{ end }}
+                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname" . }}-mariadb{{- end }}"
                   key: mariadb-password
+            - name: MARIADB_HOST
+              value: "{{ .Release.Name }}-mariadb"
+            - name: MARIADB_DATABASE
+              value: "{{ .Values.mariadb.auth.database }}"
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}"
             {{- end }}
