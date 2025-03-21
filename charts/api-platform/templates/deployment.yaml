@@ -43,6 +43,8 @@ spec:
               value: "{{ .Values.mariadbIsAlive.ssl }}"
             - name: MARIADB_USER
               value: {{ .Values.mariadb.auth.username }}
+            - name: MARIADB_DATABASE
+              value: "{{ .Values.mariadb.auth.database }}"
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
