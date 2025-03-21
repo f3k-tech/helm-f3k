@@ -75,7 +75,7 @@ importDatabase:
   sqlDumpUrl: example.com/dump.sql
 
 mariadb:
-  enabled: false
+  enabled: true
   auth:
     rootPassword: ""
     username: "api-platform"
