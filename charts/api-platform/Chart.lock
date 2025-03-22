@@ -2,5 +2,8 @@ dependencies:
 - name: mariadb
   repository: https://charts.bitnami.com/bitnami
   version: 11.5.7
-digest: sha256:5a8569cd2e5891c5027904a924c2e9c524f2da3fe62da78cc5a866160367a533
-generated: "2025-03-21T08:39:58.195765+03:00"
+- name: phpmyadmin
+  repository: https://charts.bitnami.com/bitnami
+  version: 18.1.4
+digest: sha256:a45e5c31a26c9e744cffccf5fa5362dfbb9baac21e3c4b4b0ff960a489714748
+generated: "2025-03-22T13:31:41.792764+03:00"
