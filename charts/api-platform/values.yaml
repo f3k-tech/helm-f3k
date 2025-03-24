@@ -9,6 +9,8 @@ imagePullSecrets:
   - name: gitlab-registry
 
 env: []
+  # - name: RUN_MIGRAGIONS
+  #   value: true
   # - name: RUN_SETUP_INDEXES
   #   value: true
 
