@@ -78,7 +78,7 @@ importDatabase:
     repository: registry.git.f3k.tech/f3k/custom-images/import-database
     tag: "latest"
     pullPolicy: IfNotPresent
-  sqlDumpUrl: example.com/dump.sql
+  sqlDumpUrl: ""
 
 mariadb:
   enabled: true
