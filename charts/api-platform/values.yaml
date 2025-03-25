@@ -82,6 +82,7 @@ importDatabase:
 
 mariadb:
   enabled: true
+  version: 10.6.12
   auth:
     rootPassword: ""
     username: "api-platform"
