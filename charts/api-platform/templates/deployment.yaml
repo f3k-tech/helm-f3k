@@ -68,6 +68,8 @@ spec:
           env:
             - name: SSL
               value: "{{ .Values.importDatabase.ssl }}"
+            - name: FORCE
+              value: "{{ .Values.importDatabase.force }}"
             - name: MARIADB_USER
               value: "{{ .Values.mariadb.auth.username }}"
             - name: MARIADB_PASSWORD

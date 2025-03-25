@@ -73,6 +73,7 @@ mariadbIsAlive:
 
 importDatabase:
   enabled: false
+  force: false
   ssl: false
   image:
     repository: registry.git.f3k.tech/f3k/custom-images/import-database
