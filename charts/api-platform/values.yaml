@@ -83,6 +83,7 @@ importDatabase:
 
 mariadb:
   enabled: true
+  # version is used to create the api-platform url
   version: 11.4.5
   auth:
     rootPassword: ""
