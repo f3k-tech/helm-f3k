@@ -91,9 +91,6 @@ mariadb:
     database: api-platform
     # existingSecret: "api-platfom-mariadb"
   primary:
-    service:
-      ports:
-        mysql: "3306"
     persistence:
       enabled: false
       # storageClass: "-"
