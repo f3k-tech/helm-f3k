@@ -5,6 +5,7 @@ metadata:
   name: custom-app-config-map
 data:
 {{- range $key, $value := .Values.customAppConfigMap.data }}
-  {{ $key }}: {{ $value }}
+  {{ $key }}: |
+    {{ $value | toJson | nindent 4 }}
 {{- end }}
 {{- end }}
