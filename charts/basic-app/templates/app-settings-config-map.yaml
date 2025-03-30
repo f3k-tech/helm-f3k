@@ -5,6 +5,6 @@ metadata:
   name: custom-app-config-map
 data:
 {{- range $key, $value := .Values.customAppConfigMap.data }}
-  {{ $key }}: {{ $value | quote }}
+  {{ $key }}: {{ $value }}
 {{- end }}
 {{- end }}
