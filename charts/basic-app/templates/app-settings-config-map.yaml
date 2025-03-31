@@ -4,8 +4,6 @@ kind: ConfigMap
 metadata:
   name: custom-app-config-map
 data:
-{{- range $key, $value := .Values.customAppConfigMap.data }}
-  {{ $key }}: |
-    {{ $value | toJson | nindent 4 }}
-{{- end }}
+  {{- .Values.customAppConfigMap.subPath | nindent 2 }}: |
+      {{- toJson .Values.customAppConfigMap.data | nindent 4 }}
 {{- end }}
