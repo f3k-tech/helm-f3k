@@ -1,9 +1,0 @@
-{{- if .Values.customAppConfigMap.enabled }}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: custom-app-config-map
-data:
-  {{- .Values.customAppConfigMap.subPath | nindent 2 }}: |
-      {{- toJson .Values.customAppConfigMap.data | nindent 4 }}
-{{- end }}

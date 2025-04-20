@@ -47,11 +47,11 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            {{- if .Values.customAppConfigMap.enabled }}
-            - name: custom-app-config
-              mountPath: "{{ .Values.customAppConfigMap.mountPath }}"
-              {{- if .Values.customAppConfigMap.subPath }}
-              subPath: "{{ .Values.customAppConfigMap.subPath }}"
+            {{- if .Values.appConfigMap.enabled }}
+            - name: app-config
+              mountPath: "{{ .Values.appConfigMap.mountPath }}"
+              {{- if .Values.appConfigMap.subPath }}
+              subPath: "{{ .Values.appConfigMap.subPath }}"
               {{- end }}
             {{- end }}
             {{- with .Values.volumeMounts }}
@@ -63,10 +63,10 @@ spec:
               value: {{ .value | quote }}
             {{- end }}
       volumes:
-        {{- if .Values.customAppConfigMap.enabled }}
-        - name: custom-app-config
+        {{- if .Values.appConfigMap.enabled }}
+        - name: app-config
           configMap:
-            name: custom-app-config-map
+            name: {{ include "basic-app.fullname" . }}-custom-config-map
         {{- end }}
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}

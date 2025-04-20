@@ -1,0 +1,9 @@
+{{- if .Values.appConfigMap.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "basic-app.fullname" . }}-app-config
+data:
+  {{- .Values.appConfigMap.subPath | nindent 2 }}: |
+      {{- toJson .Values.appConfigMap.data | nindent 4 }}
+{{- end }}

@@ -17,7 +17,7 @@ fullnameOverride: ""
 
 env: []
 
-customAppConfigMap:
+appConfigMap:
   enabled: true
   mountPath: /path/to/settings.json
   subPath: settings.json
