@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: registry.git.f3k.tech/f3k/360/panorama-server/development
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: cc3a4f00735e9994c213fc924c7c52a6c5ca1a3a
 
 imagePullSecrets:
   - name: gitlab-registry
