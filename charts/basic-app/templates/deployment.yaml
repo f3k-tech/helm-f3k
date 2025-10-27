@@ -48,10 +48,10 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             {{- if .Values.appConfigMap.enabled }}
-            {{- range .Values.appConfigMap.mounts }}
+            {{- range $i, $p := .Values.appConfigMap.mountPaths }}
             - name: app-config
-              mountPath: "{{ .mountPath }}"
-              subPath: "{{ .Values.appConfigMap.subPath }}"
+              mountPath: "{{ $p }}"
+              subPath: "{{ $.Values.appConfigMap.subPath }}"
               readOnly: true
             {{- end }}
             {{- end }}
