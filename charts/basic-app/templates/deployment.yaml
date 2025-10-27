@@ -51,7 +51,7 @@ spec:
             {{- range .Values.appConfigMap.mounts }}
             - name: app-config
               mountPath: "{{ .mountPath }}"
-              subPath: "{{ .subPath }}"
+              subPath: "{{ .Values.appConfigMap.subPath }}"
               readOnly: true
             {{- end }}
             {{- end }}

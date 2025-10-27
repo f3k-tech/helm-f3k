@@ -19,10 +19,11 @@ env: []
 
 appConfigMap:
   enabled: false
-  mounts:
+  subPath: settings.json
+  mountPaths:
     - mountPath: /path/to/settings.json
-      subPath: settings.json
-  data: ""
+    # - mountPath: /another/path/to/settings.json
+  data: {}
     # urls:
     #   apiUrl: https://api.example.com
 
