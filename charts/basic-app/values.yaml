@@ -21,9 +21,9 @@ appConfigMap:
   enabled: true
   mountPath: /path/to/settings.json
   subPath: settings.json
-  data:
-    urls:
-      apiUrl: https://api.example.com
+  data: ""
+    # urls:
+    #   apiUrl: https://api.example.com
 
 serviceAccount:
   # Specifies whether a service account should be created
