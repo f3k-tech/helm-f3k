@@ -230,3 +230,50 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# CloudNativePG PostgreSQL cluster configuration
+postgresql:
+  enabled: true
+  # Number of PostgreSQL instances
+  instances: 3
+  # PostgreSQL version
+  imageName: ghcr.io/cloudnative-pg/postgresql:16.1
+  # Storage configuration
+  storage:
+    size: 10Gi
+    storageClass: ""
+  # Bootstrap configuration
+  bootstrap:
+    initdb:
+      database: reviewsup
+      owner: reviewsup
+      secret:
+        name: "" # If empty, will use generated secret name
+  # Backup configuration (optional)
+  backup:
+    enabled: false
+    barmanObjectStore:
+      destinationPath: ""
+      s3Credentials:
+        accessKeyId:
+          name: ""
+          key: access-key-id
+        secretAccessKey:
+          name: ""
+          key: secret-access-key
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+  # Monitoring
+  monitoring:
+    enabled: true
+    podMonitorEnabled: false
+  # Resource limits
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"
