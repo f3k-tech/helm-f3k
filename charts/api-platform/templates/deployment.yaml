@@ -83,6 +83,8 @@ spec:
               value: "{{ .Values.importDatabase.sqlDumpUrl }}"
             - name: MARIADB_DATABASE
               value: "{{ .Values.mariadb.auth.database }}"
+            - name: COMPRESSION_TYPE
+              value: "{{ .Values.importDatabase.compressionType }}"
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}

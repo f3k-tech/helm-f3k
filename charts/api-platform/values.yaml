@@ -80,6 +80,7 @@ importDatabase:
     tag: "latest"
     pullPolicy: IfNotPresent
   sqlDumpUrl: ""
+  compressionType: "" # options: zstd, xz
 
 mariadb:
   enabled: true
