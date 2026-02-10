@@ -1,15 +1,38 @@
+{{- /*
+Create one Helm test Pod per enabled protocol to verify service reachability.
+HTTP-based protocols (hls, webRtc) use wget; TCP (rtsp, rtmp) use nc; UDP (srt, srpt) best-effort.
+*/ -}}
+{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- range $p := $protocols -}}
+{{- $cfg := index $.Values $p -}}
+{{- if and $cfg $cfg.enabled -}}
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "mediamtx.fullname" . }}-test-connection"
+  name: "{{ include "mediamtx.fullname" $ }}-{{ $p }}-test"
   labels:
-    {{- include "mediamtx.labels" . | nindent 4 }}
+    {{- include "mediamtx.labels" $ | nindent 4 }}
   annotations:
     "helm.sh/hook": test
 spec:
   containers:
+    {{- if or (eq $p "hls") (eq $p "webRtc") }}
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "mediamtx.fullname" . }}:{{ .Values.service.port }}']
+      args: ['http://{{ include "mediamtx.fullname" $ }}-{{ $p }}:{{ $cfg.service.port }}/']
+    {{- else if or (eq $p "rtsp") (eq $p "rtmp") }}
+    - name: portcheck
+      image: busybox
+      command: ['sh','-c']
+      args: ['nc -z -v {{ include "mediamtx.fullname" $ }}-{{ $p }} {{ $cfg.service.port }} -w 5']
+    {{- else }}
+    - name: udpcheck
+      image: busybox
+      command: ['sh','-c']
+      args: ['nc -z -v -u {{ include "mediamtx.fullname" $ }}-{{ $p }} {{ $cfg.service.port }} -w 5 || echo "UDP best-effort check for {{ $p }}"']
+    {{- end }}
   restartPolicy: Never
+---
+{{- end -}}
+{{- end -}}
