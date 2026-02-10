@@ -15,6 +15,11 @@ env: {}
   # MTX_RTSPTRANSPORTS: tcp
   # MTX_WEBRTCADDITIONALHOSTS: 192.168.x.x
 
+envFrom: []
+#   - configMapRef:
+#       name: mediamtx-config
+#   - secretRef:
+#       name: mediamtx-secrets
 
 serviceAccount:
   create: true
@@ -38,13 +43,13 @@ securityContext: {}
   # runAsUser: 1000
 
 srt:
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 8890
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
@@ -90,13 +95,13 @@ srt:
     #       value: v2
 
 webRtc:
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 8889
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
@@ -142,13 +147,13 @@ webRtc:
     #       value: v2
 
 rtsp:
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 8554
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
@@ -194,13 +199,13 @@ rtsp:
     #       value: v2
 
 rtmp:
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 1935
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
@@ -246,13 +251,13 @@ rtmp:
     #       value: v2
 
 hls:
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 8888
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
@@ -297,13 +302,13 @@ hls:
     #       value: v2
 
 srpt: 
-  enabled: false
+  enabled: true
   service:
     type: ClusterIP
     port: 8189
   
   ingress:
-    enabled: false
+    enabled: true
     className: ""
     annotations: {}
       # kubernetes.io/ingress.class: nginx
