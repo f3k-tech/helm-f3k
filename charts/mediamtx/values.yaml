@@ -11,6 +11,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+env:
+  MTX_RTSPTRANSPORTS: tcp
+  MTX_WEBRTCADDITIONALHOSTS: 192.168.x.x
+
 
 serviceAccount:
   create: true
