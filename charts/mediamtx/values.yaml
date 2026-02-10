@@ -43,7 +43,6 @@ securityContext: {}
   # runAsUser: 1000
 
 srt:
-  enabled: false
   service:
     type: ClusterIP
     port: 8890
@@ -95,7 +94,6 @@ srt:
     #       value: v2
 
 webRtc:
-  enabled: false
   service:
     type: ClusterIP
     port: 8889
@@ -147,7 +145,6 @@ webRtc:
     #       value: v2
 
 rtsp:
-  enabled: false
   service:
     type: ClusterIP
     port: 8554
@@ -199,7 +196,6 @@ rtsp:
     #       value: v2
 
 rtmp:
-  enabled: false
   service:
     type: ClusterIP
     port: 1935
@@ -251,7 +247,6 @@ rtmp:
     #       value: v2
 
 hls:
-  enabled: false
   service:
     type: ClusterIP
     port: 8888
@@ -301,8 +296,7 @@ hls:
     #     - name: version
     #       value: v2
 
-srpt: 
-  enabled: false
+srpt:
   service:
     type: ClusterIP
     port: 8189

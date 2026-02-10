@@ -5,7 +5,7 @@ Service name is suffixed with protocol. Port/protocol pulled from each section.
 {{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
-{{- if and $cfg $cfg.enabled -}}
+{{- if $cfg -}}
 apiVersion: v1
 kind: Service
 metadata:

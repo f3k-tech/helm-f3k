@@ -5,7 +5,7 @@ HTTP-based protocols (hls, webRtc) use wget; TCP (rtsp, rtmp) use nc; UDP (srt, 
 {{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
-{{- if and $cfg $cfg.enabled -}}
+{{- if $cfg -}}
 apiVersion: v1
 kind: Pod
 metadata:

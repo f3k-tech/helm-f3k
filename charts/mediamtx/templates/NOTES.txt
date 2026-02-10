@@ -5,7 +5,7 @@ Shows Ingress/HTTPRoute URLs and Service access/port-forward hints.
 {{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
-{{- if and $cfg $cfg.enabled -}}
+{{- if $cfg -}}
 Protocol: {{ $p }}
 
 {{- /* Ingress URLs */ -}}

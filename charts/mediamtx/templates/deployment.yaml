@@ -47,7 +47,7 @@ spec:
             {{- /* Expose per-protocol container ports based on enabled sections */}}
             {{- range $p := (list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt") }}
             {{- $cfg := index $.Values $p }}
-            {{- if and $cfg $cfg.enabled $cfg.service $cfg.service.port }}
+            {{- if and $cfg $cfg.service $cfg.service.port }}
             - name: {{ $p }}
               containerPort: {{ $cfg.service.port }}
               protocol: {{ ternary "UDP" "TCP" (or (eq $p "srt") (eq $p "srpt")) }}
