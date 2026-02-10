@@ -1,5 +1,3 @@
-{{- /* Precompute protocol list for later ranges */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -44,12 +42,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ if and .Values.hls .Values.hls.service .Values.hls.service.port }}{{ .Values.hls.service.port }}{{ else if and .Values.webRtc .Values.webRtc.service .Values.webRtc.service.port }}{{ .Values.webRtc.service.port }}{{ else }}8888{{ end }}
+              containerPort: 8888
               protocol: TCP
             {{- /* Expose per-protocol container ports based on enabled sections */}}
-            {{- range $p := $protocols -}}
+            {{- range $p := (list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt") -}}
             {{- $cfg := index $.Values $p -}}
-            {{- if and $cfg $cfg.enabled -}}
+            {{- if and $cfg $cfg.enabled $cfg.service $cfg.service.port -}}
             - name: {{ $p }}
               containerPort: {{ $cfg.service.port }}
               protocol: {{ ternary "UDP" "TCP" (or (eq $p "srt") (eq $p "srpt")) }}
@@ -71,11 +69,13 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- with .Values.env }}
           env:
-            {{- range $k, $v := .Values.env }}
+            {{- range $k, $v := . }}
             - name: {{ $k }}
               value: {{ ternary ("" | quote) ($v | quote) (and (kindIs "string" $v) (eq $v "")) }}
             {{- end }}
+          {{- end }}
       {{- with .Values.volumes }}
       volumes:
         {{- toYaml . | nindent 8 }}
