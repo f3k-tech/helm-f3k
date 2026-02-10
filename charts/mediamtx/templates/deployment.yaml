@@ -40,10 +40,29 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- /* Determine an HTTP port for probes: prefer hls/webRtc, else 8888 */}}
+          {{- $hls := .Values.hls -}}
+          {{- $webrtc := .Values.webRtc -}}
+          {{- $httpPort := 8888 -}}
+          {{- if and $hls $hls.service $hls.service.port }}
+          {{- $httpPort = $hls.service.port -}}
+          {{- else if and $webrtc $webrtc.service $webrtc.service.port }}
+          {{- $httpPort = $webrtc.service.port -}}
+          {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ $httpPort }}
               protocol: TCP
+            {{- /* Expose per-protocol container ports based on enabled sections */}}
+            {{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+            {{- range $p := $protocols -}}
+            {{- $cfg := index $.Values $p -}}
+            {{- if and $cfg $cfg.enabled -}}
+            - name: {{ $p }}
+              containerPort: {{ $cfg.service.port }}
+              protocol: {{ ternary "UDP" "TCP" (or (eq $p "srt") (eq $p "srpt")) }}
+            {{- end -}}
+            {{- end -}}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
