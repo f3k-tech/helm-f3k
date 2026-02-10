@@ -1,15 +1,26 @@
+{{- /*
+Loop over protocol sections and render one Service per enabled protocol.
+Service name is suffixed with protocol. Port/protocol pulled from each section.
+*/ -}}
+{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- range $p := $protocols -}}
+{{- $cfg := index $.Values $p -}}
+{{- if and $cfg $cfg.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "mediamtx.fullname" . }}
+  name: {{ include "mediamtx.fullname" $ }}-{{ $p }}
   labels:
-    {{- include "mediamtx.labels" . | nindent 4 }}
+    {{- include "mediamtx.labels" $ | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ $cfg.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+    - port: {{ $cfg.service.port }}
+      targetPort: {{ $cfg.service.port }}
+      protocol: {{ ternary "UDP" "TCP" (or (eq $p "srt") (eq $p "srpt")) }}
+      name: {{ $p }}
   selector:
-    {{- include "mediamtx.selectorLabels" . | nindent 4 }}
+    {{- include "mediamtx.selectorLabels" $ | nindent 4 }}
+---
+{{- end -}}
+{{- end -}}
