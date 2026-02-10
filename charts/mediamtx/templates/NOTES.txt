@@ -1,8 +1,8 @@
 {{- /*
-Render access information per enabled protocol (hls, webRtc, rtsp, rtmp, srt, srpt).
+Render access information per enabled protocol (hls, webrtc, rtsp, rtmp, srt, srpt).
 Shows Ingress/HTTPRoute URLs and Service access/port-forward hints.
 */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- $protocols := list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
 {{- if $cfg -}}
@@ -38,11 +38,11 @@ Service:
   # NodePort access
   export NODE_PORT=$(kubectl get --namespace {{ $.Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "mediamtx.fullname" $ }}-{{ $p }})
   export NODE_IP=$(kubectl get nodes --namespace {{ $.Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
-  echo {{ if or (eq $p "hls") (eq $p "webRtc") }}http{{ else }}tcp{{ end }}://$NODE_IP:$NODE_PORT
+  echo {{ if or (eq $p "hls") (eq $p "webrtc") }}http{{ else }}tcp{{ end }}://$NODE_IP:$NODE_PORT
 {{- else }}
   # Port-forward (local testing)
   kubectl --namespace {{ $.Release.Namespace }} port-forward svc/{{ include "mediamtx.fullname" $ }}-{{ $p }} {{ $cfg.service.port }}:{{ $cfg.service.port }}
-  {{- if or (eq $p "hls") (eq $p "webRtc") }}
+  {{- if or (eq $p "hls") (eq $p "webrtc") }}
   echo Visit http://127.0.0.1:{{ $cfg.service.port }}/
   {{- else if eq $p "rtsp" }}
   echo Connect RTSP to rtsp://127.0.0.1:{{ $cfg.service.port }}

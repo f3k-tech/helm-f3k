@@ -1,9 +1,9 @@
 {{- /*
 Loop over protocol sections in values and render one Ingress per enabled protocol.
-Supported keys: hls, webRtc, rtsp, rtmp, srt, srpt
+Supported keys: hls, webrtc, rtsp, rtmp, srt, srpt
 Each protocol section should provide `.ingress` and `.service.port`.
 */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- $protocols := list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
 {{- if and $cfg (hasKey $cfg "ingress") -}}

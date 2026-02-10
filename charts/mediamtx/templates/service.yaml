@@ -2,7 +2,7 @@
 Loop over protocol sections and render one Service per enabled protocol.
 Service name is suffixed with protocol. Port/protocol pulled from each section.
 */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- $protocols := list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
 {{- if $cfg -}}

@@ -45,7 +45,7 @@ spec:
               containerPort: 8888
               protocol: TCP
             {{- /* Expose per-protocol container ports based on enabled sections */}}
-            {{- range $p := (list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt") }}
+            {{- range $p := (list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt") }}
             {{- $cfg := index $.Values $p }}
             {{- if and $cfg $cfg.service $cfg.service.port }}
             - name: {{ $p }}

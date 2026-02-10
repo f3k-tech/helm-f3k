@@ -1,8 +1,8 @@
 {{- /*
 Create one Helm test Pod per enabled protocol to verify service reachability.
-HTTP-based protocols (hls, webRtc) use wget; TCP (rtsp, rtmp) use nc; UDP (srt, srpt) best-effort.
+HTTP-based protocols (hls, webrtc) use wget; TCP (rtsp, rtmp) use nc; UDP (srt, srpt) best-effort.
 */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- $protocols := list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
 {{- if $cfg -}}
@@ -16,7 +16,7 @@ metadata:
     "helm.sh/hook": test
 spec:
   containers:
-    {{- if or (eq $p "hls") (eq $p "webRtc") }}
+    {{- if or (eq $p "hls") (eq $p "webrtc") }}
     - name: wget
       image: busybox
       command: ['wget']

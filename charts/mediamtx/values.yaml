@@ -93,7 +93,7 @@ srt:
     #     - name: version
     #       value: v2
 
-webRtc:
+webrtc:
   service:
     type: ClusterIP
     port: 8889

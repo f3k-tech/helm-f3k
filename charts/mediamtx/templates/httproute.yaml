@@ -1,8 +1,8 @@
 {{- /*
 Loop over protocol sections and render HTTPRoute for those with httpRoute.enabled.
-Only meaningful for HTTP-based protocols (e.g., hls, webRtc), but generic on values.
+Only meaningful for HTTP-based protocols (e.g., hls, webrtc), but generic on values.
 */ -}}
-{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
+{{- $protocols := list "hls" "webrtc" "rtsp" "rtmp" "srt" "srpt" -}}
 {{- range $p := $protocols -}}
 {{- $cfg := index $.Values $p -}}
 {{- if and $cfg (hasKey $cfg "httpRoute") -}}
