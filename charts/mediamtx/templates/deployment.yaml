@@ -1,3 +1,5 @@
+{{- /* Precompute protocol list for later ranges */ -}}
+{{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,21 +42,11 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- /* Determine an HTTP port for probes: prefer hls/webRtc, else 8888 */}}
-          {{- $hls := .Values.hls -}}
-          {{- $webrtc := .Values.webRtc -}}
-          {{- $httpPort := 8888 -}}
-          {{- if and $hls $hls.service $hls.service.port }}
-          {{- $httpPort = $hls.service.port -}}
-          {{- else if and $webrtc $webrtc.service $webrtc.service.port }}
-          {{- $httpPort = $webrtc.service.port -}}
-          {{- end }}
           ports:
             - name: http
-              containerPort: {{ $httpPort }}
+              containerPort: {{ if and .Values.hls .Values.hls.service .Values.hls.service.port }}{{ .Values.hls.service.port }}{{ else if and .Values.webRtc .Values.webRtc.service .Values.webRtc.service.port }}{{ .Values.webRtc.service.port }}{{ else }}8888{{ end }}
               protocol: TCP
             {{- /* Expose per-protocol container ports based on enabled sections */}}
-            {{- $protocols := list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt" -}}
             {{- range $p := $protocols -}}
             {{- $cfg := index $.Values $p -}}
             {{- if and $cfg $cfg.enabled -}}
