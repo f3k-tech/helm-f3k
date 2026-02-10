@@ -38,21 +38,21 @@ spec:
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 8888
               protocol: TCP
             {{- /* Expose per-protocol container ports based on enabled sections */}}
-            {{- range $p := (list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt") -}}
-            {{- $cfg := index $.Values $p -}}
-            {{- if and $cfg $cfg.enabled $cfg.service $cfg.service.port -}}
+            {{- range $p := (list "hls" "webRtc" "rtsp" "rtmp" "srt" "srpt") }}
+            {{- $cfg := index $.Values $p }}
+            {{- if and $cfg $cfg.enabled $cfg.service $cfg.service.port }}
             - name: {{ $p }}
               containerPort: {{ $cfg.service.port }}
               protocol: {{ ternary "UDP" "TCP" (or (eq $p "srt") (eq $p "srpt")) }}
-            {{- end -}}
-            {{- end -}}
+            {{- end }}
+            {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
