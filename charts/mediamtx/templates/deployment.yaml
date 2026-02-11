@@ -103,13 +103,11 @@ spec:
               value: {{ ternary ("" | quote) ($v | quote) (and (kindIs "string" $v) (eq $v "")) }}
             {{- end }}
           {{- end }}
-      {{- with .Values.volumes }}
       volumes:
         {{- if .Values.mediamtxConfigMap.enabled }}
         - name: mediamtx-config
           configMap:
             name: {{ include "mediamtx.fullname" . }}-config
-        {{- end }}
         {{- end }}
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
