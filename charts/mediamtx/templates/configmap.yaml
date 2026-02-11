@@ -1,0 +1,9 @@
+{{- if .Values.mediamtxConfigMap.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mediamtx.fullname" . }}-config
+data:
+  {{- .Values.mediamtxConfigMap.subPath | nindent 2 }}: |
+      {{- toYaml .Values.mediamtxConfigMap.data | nindent 4 }}
+{{- end }}

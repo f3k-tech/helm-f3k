@@ -21,6 +21,15 @@ envFrom: []
 #   - secretRef:
 #       name: mediamtx-secrets
 
+mediamtxConfigMap:
+  enabled: false
+  subPath: mediamtx.yaml
+  mountPaths:
+    - /mediamtx.yaml
+  data: {}
+    # logLevel: info
+
+
 serviceAccount:
   create: true
   automount: true

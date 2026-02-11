@@ -79,10 +79,15 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            {{- if .Values.mediamtxConfigMap.enabled }}
+            {{- range $i, $p := .Values.mediamtxConfigMap.mountPaths }}
+            - name: mediamtx-config
+              mountPath: "{{ $p }}"
+              subPath: "{{ $.Values.mediamtxConfigMap.subPath }}"
+              readOnly: true
+            {{- end }}
+            {{- end }}
           {{- with .Values.envFrom }}
           envFrom:
             {{- toYaml . | nindent 12 }}
@@ -96,8 +101,14 @@ spec:
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
+        {{- if .Values.mediamtxConfigMap.enabled }}
+        - name: mediamtx-config
+          configMap:
+            name: {{ include "mediamtx.fullname" . }}-config
+        {{- end }}
+        {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
