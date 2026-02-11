@@ -23,9 +23,9 @@ envFrom: []
 
 mediamtxConfigMap:
   enabled: false
-  subPath: mediamtx.yaml
+  subPath: mediamtx.yml
   mountPaths:
-    - /mediamtx.yaml
+    - /mediamtx.yml
   data: {}
     # logLevel: info
 
