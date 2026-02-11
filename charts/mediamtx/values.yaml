@@ -54,6 +54,7 @@ securityContext: {}
 srt:
   service:
     type: ClusterIP
+    protocol: UDP
     port: 8890
   
   ingress:
@@ -308,6 +309,7 @@ hls:
 srpt:
   service:
     type: ClusterIP
+    protocol: UDP
     port: 8189
   
   ingress:
