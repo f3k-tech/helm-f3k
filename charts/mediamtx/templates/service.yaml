@@ -21,7 +21,7 @@ spec:
   ports:
     - port: {{ $cfg.service.port }}
       targetPort: {{ $cfg.service.port }}
-      protocol: {{ default $cfg.service.protocol "TCP" }}
+      protocol: {{ default "TCP" $cfg.service.protocol }}
       name: {{ $p }}
   selector:
     {{- include "mediamtx.selectorLabels" $ | nindent 4 }}

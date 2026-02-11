@@ -2,5 +2,5 @@ apiVersion: v2
 name: mediamtx
 description: Deploys the bluenviron MediaMTX streaming server with per‑protocol Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway API HTTPRoute support, configurable via values.
 type: application
-version: 0.161.13
+version: 0.161.14
 appVersion: "1.16.1"
