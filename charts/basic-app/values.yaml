@@ -2,6 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# Override container command (ENTRYPOINT). Example:
+# command:
+#   - /bin/sh
+#   - -c
+#   - echo Hello World && sleep 3600
+command: []
+
 replicaCount: 1
 
 image:
