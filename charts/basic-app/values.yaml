@@ -12,6 +12,7 @@ command: []
 replicaCount: 1
 
 image:
+  registry: docker.io
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
