@@ -111,6 +111,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-app
                   key: jwt-passphrase
+            - name: CRON_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" . }}-app
+                  key: cron-secret
             {{- if .Values.mariadb.enabled }}
             - name: MARIADB_USER
               value: "{{ .Values.mariadb.auth.username }}"
