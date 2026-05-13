@@ -1,0 +1,8 @@
+apiVersion: v2
+name: api-platform
+description: A Helm chart for an API Platform project
+home: https://api-platform.com
+icon: https://api-platform.com/logo-250x250.png
+type: application
+version: 0.4.0
+appVersion: 0.1.0
