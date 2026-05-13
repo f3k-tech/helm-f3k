@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "api360.fullname" . }}-php-ini-config
+  name: {{ include "api-platform.fullname" . }}-php-ini-config
 
 data:
   php.ini: |

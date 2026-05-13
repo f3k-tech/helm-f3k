@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "api360.fullname" . }}
+  name: {{ include "api-platform.fullname" . }}
   labels:
-    {{- include "api360.labels" . | nindent 4 }}
+    {{- include "api-platform.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "api360.selectorLabels" . | nindent 4 }}
+    {{- include "api-platform.selectorLabels" . | nindent 4 }}

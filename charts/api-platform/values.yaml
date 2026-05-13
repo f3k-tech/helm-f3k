@@ -84,19 +84,19 @@ importDatabase:
 
 mariadb:
   enabled: true
-  # version is used to create the api360 url
+  # version is used to create the api-platform url
   version: 11.4.5
   auth:
     rootPassword: ""
-    username: "api360"
+    username: "api-platform"
     password: ""
-    database: api360
+    database: api-platform
     # existingSecret: "api-platfom-mariadb"
   primary:
     persistence:
       enabled: false
       # storageClass: "-"
-      # existingClaim: api360-mariadb
+      # existingClaim: api-platform-mariadb
       accessMode: ReadWriteOnce
       size: 10Gi
       annotations: {}
@@ -104,7 +104,7 @@ mariadb:
 persistence:
   sqlite:
     enabled: false
-    # existingClaim: api360-sqlite
+    # existingClaim: api-platform-sqlite
     annotations: {}
     accessMode: ReadWriteOnce
     size: 1Gi
