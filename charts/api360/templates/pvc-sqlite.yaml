@@ -3,10 +3,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "api-platform.fullname" . }}-sqlite
+  name: {{ template "api360.fullname" . }}-sqlite
   labels:
-    app.kubernetes.io/name: {{ include "api-platform.name" . }}
-    helm.sh/chart: {{ include "api-platform.chart" . }}
+    app.kubernetes.io/name: {{ include "api360.name" . }}
+    helm.sh/chart: {{ include "api360.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
     app.kubernetes.io/component: app

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "api-platform.fullname" . }}
+  name: {{ include "api360.fullname" . }}
   labels:
-    {{- include "api-platform.labels" . | nindent 4 }}
+    {{- include "api360.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "api-platform.selectorLabels" . | nindent 6 }}
+      {{- include "api360.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "api-platform.labels" . | nindent 8 }}
+        {{- include "api360.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "api-platform.serviceAccountName" . }}
+      serviceAccountName: {{ include "api360.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
@@ -48,7 +48,7 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api-platform.fullname" . }}-mariadb{{ end }}
+                  name: {{ if .Values.mariadb.auth.existingSecret }}{{ .Values.mariadb.auth.existingSecret }}{{ else }}{{ include "api360.fullname" . }}-mariadb{{ end }}
                   key: mariadb-password
             - name: MARIADB_HOST
               value: "{{ .Release.Name }}-mariadb"
@@ -75,7 +75,7 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname" . }}-mariadb{{- end }}"
+                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api360.fullname" . }}-mariadb{{- end }}"
                   key: mariadb-password
             - name: MARIADB_TARGET_HOST
               value: "{{ .Release.Name }}-mariadb"
@@ -104,17 +104,17 @@ spec:
             - name: APP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ include "api360.fullname" . }}-app
                   key: app-secret
             - name: JWT_PASSPHRASE
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ include "api360.fullname" . }}-app
                   key: jwt-passphrase
             - name: CRON_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ include "api360.fullname" . }}-app
                   key: cron-secret
             {{- if .Values.mariadb.enabled }}
             - name: MARIADB_USER
@@ -122,14 +122,14 @@ spec:
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname" . }}-mariadb{{- end }}"
+                  name: "{{- if .Values.mariadb.auth.existingSecret -}}{{ .Values.mariadb.auth.existingSecret }}{{- else -}}{{ include "api360.fullname" . }}-mariadb{{- end }}"
                   key: mariadb-password
             - name: MARIADB_HOST
               value: "{{ .Release.Name }}-mariadb"
             - name: MARIADB_DATABASE
               value: "{{ .Values.mariadb.auth.database }}"
             - name: DATABASE_URL
-              value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}?serverVersion=mariadb-{{ .Values.mariadb.version }}"
+              value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api360.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}?serverVersion=mariadb-{{ .Values.mariadb.version }}"
             {{- end }}
             - name: CORS_ALLOW_ORIGIN
               value: "*"
@@ -155,14 +155,14 @@ spec:
       volumes:
         - name: php-ini-config
           configMap:
-            name: {{ include "api-platform.fullname" . }}-php-ini-config
+            name: {{ include "api360.fullname" . }}-php-ini-config
         - name: jwt-keys
           secret:
-            secretName: {{ include "api-platform.fullname" . }}-jwt-keys
+            secretName: {{ include "api360.fullname" . }}-jwt-keys
         {{- if .Values.persistence.sqlite.enabled }}
         - name: sqlite-storage
           persistentVolumeClaim:
-            claimName: {{ include "api-platform.fullname" . }}-sqlite
+            claimName: {{ include "api360.fullname" . }}-sqlite
         {{- else }}
         - name: sqlite-storage
           emptyDir: {}
