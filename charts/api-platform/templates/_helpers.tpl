@@ -51,6 +51,13 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Fully qualified name for the CloudNativePG postgres cluster and its secret.
+*/}}
+{{- define "api-platform.fullname-postgres" -}}
+{{- printf "%s-postgres" (include "api-platform.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "api-platform.serviceAccountName" -}}

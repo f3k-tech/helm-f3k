@@ -116,6 +116,22 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}-app
                   key: cron-secret
+            - name: CORS_ALLOW_ORIGIN
+              value: "*"
+            {{- if .Values.postgresql.enabled }}
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname-postgres" . }}
+                  key: username
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname-postgres" . }}
+                  key: password
+            - name: DATABASE_URL
+              value: "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@{{ include "api-platform.fullname-postgres" . }}-rw:5432/{{ .Values.postgresql.bootstrap.initdb.database }}?serverVersion={{ .Values.postgresql.serverVersion | default "16" }}&charset=utf8"
+            {{- end }}
             {{- if .Values.mariadb.enabled }}
             - name: MARIADB_USER
               value: "{{ .Values.mariadb.auth.username }}"
@@ -131,8 +147,6 @@ spec:
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}?serverVersion=mariadb-{{ .Values.mariadb.version }}"
             {{- end }}
-            - name: CORS_ALLOW_ORIGIN
-              value: "*"
           {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
