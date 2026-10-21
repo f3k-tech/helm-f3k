@@ -1,0 +1,38 @@
+{{- if .Values.mariadbOperator.enabled }}
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: {{ include "api-platform.fullname-mariadb-operator" . }}
+  labels:
+    {{- include "api-platform.labels" . | nindent 4 }}
+spec:
+  image: "{{ .Values.mariadbOperator.image.repository }}:{{ .Values.mariadbOperator.image.tag }}"
+
+  rootPasswordSecretKeyRef:
+    name: {{ include "api-platform.fullname-mariadb-operator" . }}
+    key: root-password
+
+  username: {{ .Values.mariadbOperator.auth.username }}
+  passwordSecretKeyRef:
+    name: {{ include "api-platform.fullname-mariadb-operator" . }}
+    key: password
+  database: {{ .Values.mariadbOperator.auth.database }}
+
+  port: 3306
+
+  storage:
+    size: {{ .Values.mariadbOperator.storage.size }}
+    {{- if .Values.mariadbOperator.storage.storageClass }}
+    storageClassName: {{ .Values.mariadbOperator.storage.storageClass }}
+    {{- end }}
+
+  {{- if .Values.mariadbOperator.resources }}
+  resources:
+    {{- toYaml .Values.mariadbOperator.resources | nindent 4 }}
+  {{- end }}
+
+  {{- if .Values.mariadbOperator.metrics.enabled }}
+  metrics:
+    enabled: true
+  {{- end }}
+{{- end }}

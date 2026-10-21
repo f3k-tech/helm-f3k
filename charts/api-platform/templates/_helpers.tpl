@@ -58,6 +58,13 @@ Fully qualified name for the CloudNativePG postgres cluster and its secret.
 {{- end }}
 
 {{/*
+Fully qualified name for the mariadb-operator MariaDB resource and its secret.
+*/}}
+{{- define "api-platform.fullname-mariadb-operator" -}}
+{{- printf "%s-mariadb-operator" (include "api-platform.fullname" .) | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "api-platform.serviceAccountName" -}}

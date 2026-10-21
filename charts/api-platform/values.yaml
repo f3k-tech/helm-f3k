@@ -18,6 +18,12 @@ env: []
 secrets:
   appSecret: ""
   jwtPassphrase: ""
+  postgres:
+    # existingSecret: "api-platform-postgres"
+    auth:
+      username: ""
+      password: ""
+    annotations: {}
 
 nameOverride: ""
 fullnameOverride: ""
@@ -82,6 +88,14 @@ importDatabase:
   sqlDumpUrl: ""
   compressionType: "" # options: zstd, xz
 
+# Selects which backend's DATABASE_URL is wired into the app container.
+# One of: mariadb, mariadbOperator, postgresql, sqlite
+# Independent of the *.enabled flags below, which only control whether each
+# backend's resources are created — so mariadb and mariadbOperator can both
+# be enabled at once to run them side by side while migrating data.
+database:
+  backend: mariadb
+
 mariadb:
   enabled: true
   # version is used to create the api-platform url
@@ -100,6 +114,62 @@ mariadb:
       accessMode: ReadWriteOnce
       size: 10Gi
       annotations: {}
+
+mariadbOperator:
+  enabled: false
+  image:
+    repository: mariadb
+    tag: "11.4.5"
+  auth:
+    rootPassword: ""
+    username: "api-platform"
+    password: ""
+    database: api-platform
+    # existingSecret: "api-platform-mariadb-operator"
+  storage:
+    size: 10Gi
+    storageClass: ""
+  resources: {}
+  metrics:
+    enabled: false
+
+postgresql:
+  enabled: false
+  instances: 1
+  imageName: ""
+  enableSuperuserAccess: false
+  # serverVersion is used to create the api-platform url
+  serverVersion: "16"
+  bootstrap:
+    initdb:
+      database: api-platform
+      owner: ""
+      secret:
+        name: ""
+      scripts: []
+  storage:
+    enabled: false
+    size: 10Gi
+    storageClass: ""
+  resources: {}
+  monitoring:
+    enabled: false
+    podMonitorEnabled: false
+  backup:
+    enabled: false
+    barmanObjectStore:
+      destinationPath: ""
+      s3Credentials:
+        accessKeyId:
+          name: ""
+          key: ""
+        secretAccessKey:
+          name: ""
+          key: ""
+      wal:
+        compression: ""
+      data:
+        compression: ""
 
 persistence:
   sqlite:
