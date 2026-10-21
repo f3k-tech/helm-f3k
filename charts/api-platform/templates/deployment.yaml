@@ -118,7 +118,7 @@ spec:
                   key: cron-secret
             - name: CORS_ALLOW_ORIGIN
               value: "*"
-            {{- if .Values.postgresql.enabled }}
+            {{- if eq .Values.database.backend "postgresql" }}
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
@@ -132,7 +132,7 @@ spec:
             - name: DATABASE_URL
               value: "postgresql://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@{{ include "api-platform.fullname-postgres" . }}-rw:5432/{{ .Values.postgresql.bootstrap.initdb.database }}?serverVersion={{ .Values.postgresql.serverVersion | default "16" }}&charset=utf8"
             {{- end }}
-            {{- if .Values.mariadb.enabled }}
+            {{- if eq .Values.database.backend "mariadb" }}
             - name: MARIADB_USER
               value: "{{ .Values.mariadb.auth.username }}"
             - name: MARIADB_PASSWORD
@@ -146,6 +146,21 @@ spec:
               value: "{{ .Values.mariadb.auth.database }}"
             - name: DATABASE_URL
               value: "mysql://{{ .Values.mariadb.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname" . }}-mariadb:3306/{{ .Values.mariadb.auth.database }}?serverVersion=mariadb-{{ .Values.mariadb.version }}"
+            {{- end }}
+            {{- if eq .Values.database.backend "mariadbOperator" }}
+            - name: MARIADB_USER
+              value: "{{ .Values.mariadbOperator.auth.username }}"
+            - name: MARIADB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{- if .Values.mariadbOperator.auth.existingSecret -}}{{ .Values.mariadbOperator.auth.existingSecret }}{{- else -}}{{ include "api-platform.fullname-mariadb-operator" . }}{{- end }}"
+                  key: password
+            - name: MARIADB_HOST
+              value: "{{ include "api-platform.fullname-mariadb-operator" . }}"
+            - name: MARIADB_DATABASE
+              value: "{{ .Values.mariadbOperator.auth.database }}"
+            - name: DATABASE_URL
+              value: "mysql://{{ .Values.mariadbOperator.auth.username }}:$(MARIADB_PASSWORD)@{{ include "api-platform.fullname-mariadb-operator" . }}:3306/{{ .Values.mariadbOperator.auth.database }}?serverVersion=mariadb-{{ .Values.mariadbOperator.image.tag }}"
             {{- end }}
           {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
