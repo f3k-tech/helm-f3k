@@ -33,11 +33,14 @@ helm dependency update charts/<chart-name>
 
 ## api-platform architecture
 
-The chart deploys a Symfony/API Platform app and supports three database backends (one enabled at a time):
+The chart deploys a Symfony/API Platform app and supports four database backends:
 
-- **MariaDB** (`mariadb.enabled`) — uses the Bitnami MariaDB subchart
+- **MariaDB (Bitnami)** (`mariadb.enabled`) — uses the Bitnami MariaDB subchart. Being phased out in favor of `mariadbOperator`.
+- **MariaDB (operator)** (`mariadbOperator.enabled`) — uses the [mariadb-operator](https://github.com/mariadb-operator/mariadb-operator) via a `MariaDB` CRD. Requires the operator + its CRDs to be installed cluster-wide beforehand (not a chart dependency, same as CNPG below).
 - **PostgreSQL** (`postgresql.enabled`) — uses CloudNativePG (CNPG) operator via a `Cluster` CRD
 - **SQLite** (`persistence.sqlite.enabled`) — backed by a PVC
+
+Each backend's `*.enabled` flag only controls whether its resources get created. `database.backend` (one of `mariadb`, `mariadbOperator`, `postgresql`, `sqlite`) separately selects which backend's `DATABASE_URL` is actually wired into the app container. This split lets `mariadb` and `mariadbOperator` both be enabled at once — e.g. to run the Bitnami and operator-managed MariaDB side by side while migrating data, then cut over by flipping `database.backend` and later disabling `mariadb`.
 
 ### Secret management pattern
 
@@ -45,6 +48,7 @@ Secrets are stable across Helm upgrades via a `lookup` guard: if a secret alread
 
 - `templates/secret.yaml` — app secrets (`app-secret`, `jwt-passphrase`, `cron-secret`)
 - `templates/database/secret.yaml` — postgres credentials (`username`, `password`)
+- `templates/database/mariadb-operator-secret.yaml` — mariadb-operator credentials (`root-password`, `password`)
 
 The `cron-secret` key is stored alongside the app secrets in the `-app` secret.
 
@@ -61,6 +65,7 @@ When `postgresql.enabled`, the deployment injects `POSTGRES_USER` and `POSTGRES_
 All named templates live in `templates/_helpers.tpl`:
 - `api-platform.fullname` — base name for most resources
 - `api-platform.fullname-postgres` — name for the CNPG Cluster and its secret (`<fullname>-postgres`)
+- `api-platform.fullname-mariadb-operator` — name for the mariadb-operator `MariaDB` CR and its secret (`<fullname>-mariadb-operator`)
 
 ## Publishing charts
 
