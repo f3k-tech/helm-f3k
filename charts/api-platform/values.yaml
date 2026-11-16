@@ -77,6 +77,15 @@ mariadbIsAlive:
     repository: registry.git.f3k.tech/f3k/custom-images/mariadb-isalive
     pullPolicy: IfNotPresent
 
+# Init container that holds the app back until it can log in to the
+# PostgreSQL database. Only used when database.backend is postgresql.
+postgresqlIsAlive:
+  enabled: true
+  image:
+    repository: postgres
+    tag: "16-alpine"
+    pullPolicy: IfNotPresent
+
 importDatabase:
   enabled: false
   force: false

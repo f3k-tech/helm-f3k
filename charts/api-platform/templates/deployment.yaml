@@ -53,6 +53,39 @@ spec:
             - name: MARIADB_HOST
               value: "{{ .Release.Name }}-mariadb"
         {{- end }}
+        {{- if and (eq .Values.database.backend "postgresql") .Values.postgresqlIsAlive.enabled }}
+        - name: postgresql-isalive
+          image: "{{ .Values.postgresqlIsAlive.image.repository }}:{{ .Values.postgresqlIsAlive.image.tag }}"
+          imagePullPolicy: {{ .Values.postgresqlIsAlive.image.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              until psql --command 'SELECT 1' > /dev/null; do
+                echo "Waiting for PostgreSQL at $PGHOST..."
+                sleep 2
+              done
+              echo "PostgreSQL is ready."
+          env:
+            - name: PGHOST
+              value: "{{ include "api-platform.fullname-postgres" . }}-rw"
+            - name: PGPORT
+              value: "5432"
+            - name: PGDATABASE
+              value: "{{ .Values.postgresql.bootstrap.initdb.database }}"
+            - name: PGCONNECT_TIMEOUT
+              value: "5"
+            - name: PGUSER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname-postgres" . }}
+                  key: username
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname-postgres" . }}
+                  key: password
+        {{- end }}
         {{- if .Values.persistence.sqlite.enabled }}
         - name: set-sqlite-owner
           image: busybox

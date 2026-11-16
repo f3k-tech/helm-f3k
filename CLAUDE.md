@@ -60,6 +60,10 @@ A pre-install/pre-upgrade `Job` (`job-jwt-keys-secret-generator.yaml`) generates
 
 When `postgresql.enabled`, the deployment injects `POSTGRES_USER` and `POSTGRES_PASSWORD` from the CNPG secret (`<fullname>-postgres`), then constructs `DATABASE_URL` using Kubernetes env-var interpolation (`$(POSTGRES_USER)`). The CNPG read-write service is `<fullname>-postgres-rw`. Override the version string via `postgresql.serverVersion` (defaults to `"16"`).
 
+### Waiting for PostgreSQL
+
+When `database.backend` is `postgresql`, a `postgresql-isalive` init container (`postgresqlIsAlive.enabled`, on by default) runs `SELECT 1` through `psql` against the `-rw` service with the app's own credentials, and retries until it succeeds. This holds the app container back until the database and its role exist, so migrations in the app's entrypoint do not fail while CNPG is still bootstrapping. It uses the stock `postgres` image (`postgresqlIsAlive.image`).
+
 ### Helper naming
 
 All named templates live in `templates/_helpers.tpl`:
