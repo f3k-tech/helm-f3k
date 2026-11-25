@@ -52,6 +52,8 @@ Secrets are stable across Helm upgrades via a `lookup` guard: if a secret alread
 
 The `cron-secret` key is stored alongside the app secrets in the `-app` secret.
 
+Argo CD renders with `helm template`, where `lookup` returns nothing, so the `-app` secret gets fresh random values on every render. Set `secrets.existingSecret` to the name of a Secret managed elsewhere (e.g. External Secrets); the chart then skips `templates/secret.yaml` and the deployment reads `app-secret`, `jwt-passphrase` and `cron-secret` from that Secret.
+
 ### JWT keys
 
 A pre-install/pre-upgrade `Job` (`job-jwt-keys-secret-generator.yaml`) generates an RSA key pair and stores it in a `<fullname>-jwt-keys` secret if one does not yet exist. The `role-secret-creator` Role + RoleBinding grant the job the necessary RBAC to create secrets.

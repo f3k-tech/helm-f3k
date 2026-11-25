@@ -137,17 +137,17 @@ spec:
             - name: APP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ .Values.secrets.existingSecret | default (printf "%s-app" (include "api-platform.fullname" .)) }}
                   key: app-secret
             - name: JWT_PASSPHRASE
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ .Values.secrets.existingSecret | default (printf "%s-app" (include "api-platform.fullname" .)) }}
                   key: jwt-passphrase
             - name: CRON_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}-app
+                  name: {{ .Values.secrets.existingSecret | default (printf "%s-app" (include "api-platform.fullname" .)) }}
                   key: cron-secret
             - name: CORS_ALLOW_ORIGIN
               value: "*"
