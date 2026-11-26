@@ -3,7 +3,22 @@ entries:
   api-platform:
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.744530305Z"
+    created: "2026-11-26T07:46:38.542733155Z"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.4.2
+    description: A Helm chart for Kubernetes
+    digest: 18e04f5918faef7e445ec8d2dea95cd681f7b7de0c7c0fd3c34c2f9983c7fc05
+    name: api-platform
+    type: application
+    urls:
+    - https://f3k-tech.github.io/helm-f3k/api-platform-0.5.3.tgz
+    version: 0.5.3
+  - apiVersion: v2
+    appVersion: "12"
+    created: "2026-11-26T07:46:38.534969574Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -18,7 +33,7 @@ entries:
     version: 0.5.2
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.739227535Z"
+    created: "2026-11-26T07:46:38.524870122Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -33,7 +48,7 @@ entries:
     version: 0.5.1
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.733725647Z"
+    created: "2026-11-26T07:46:38.516854477Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -48,7 +63,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.727732617Z"
+    created: "2026-11-26T07:46:38.507397927Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -63,7 +78,7 @@ entries:
     version: 0.3.3
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.722983711Z"
+    created: "2026-11-26T07:46:38.499842038Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -78,7 +93,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.71707209Z"
+    created: "2026-11-26T07:46:38.490337565Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -93,7 +108,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.711612258Z"
+    created: "2026-11-26T07:46:38.481704516Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -108,7 +123,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.679954803Z"
+    created: "2026-11-26T07:46:38.441677757Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -123,7 +138,7 @@ entries:
     version: 0.2.40
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.670186134Z"
+    created: "2026-11-26T07:46:38.428316416Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -138,7 +153,7 @@ entries:
     version: 0.2.39
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.665109983Z"
+    created: "2026-11-26T07:46:38.421845354Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -153,7 +168,7 @@ entries:
     version: 0.2.38
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.661555212Z"
+    created: "2026-11-26T07:46:38.418396162Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -168,7 +183,7 @@ entries:
     version: 0.2.37
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.658106632Z"
+    created: "2026-11-26T07:46:38.41350869Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -183,7 +198,7 @@ entries:
     version: 0.2.36
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.653124936Z"
+    created: "2026-11-26T07:46:38.407885817Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -198,7 +213,7 @@ entries:
     version: 0.2.35
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.649616152Z"
+    created: "2026-11-26T07:46:38.402249883Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -213,7 +228,7 @@ entries:
     version: 0.2.34
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.644224669Z"
+    created: "2026-11-26T07:46:38.396113991Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -228,7 +243,7 @@ entries:
     version: 0.2.33
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.640744687Z"
+    created: "2026-11-26T07:46:38.392681664Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -243,7 +258,7 @@ entries:
     version: 0.2.32
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.637235738Z"
+    created: "2026-11-26T07:46:38.388937565Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -258,7 +273,7 @@ entries:
     version: 0.2.31
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.632232029Z"
+    created: "2026-11-26T07:46:38.384509758Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -273,7 +288,7 @@ entries:
     version: 0.2.30
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.622558661Z"
+    created: "2026-11-26T07:46:38.375975327Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -288,7 +303,7 @@ entries:
     version: 0.2.29
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.617807674Z"
+    created: "2026-11-26T07:46:38.37248691Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -303,7 +318,7 @@ entries:
     version: 0.2.28
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.613991174Z"
+    created: "2026-11-26T07:46:38.369004592Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -318,7 +333,7 @@ entries:
     version: 0.2.27
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.609488023Z"
+    created: "2026-11-26T07:46:38.364252081Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -333,7 +348,7 @@ entries:
     version: 0.2.26
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.605934154Z"
+    created: "2026-11-26T07:46:38.3590167Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -348,7 +363,7 @@ entries:
     version: 0.2.25
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.601245841Z"
+    created: "2026-11-26T07:46:38.353647994Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -363,7 +378,7 @@ entries:
     version: 0.2.24
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.59781269Z"
+    created: "2026-11-26T07:46:38.347645796Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -378,7 +393,7 @@ entries:
     version: 0.2.23
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.594301734Z"
+    created: "2026-11-26T07:46:38.344299833Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -393,7 +408,7 @@ entries:
     version: 0.2.22
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.589708994Z"
+    created: "2026-11-26T07:46:38.338938035Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -408,7 +423,7 @@ entries:
     version: 0.2.21
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.585992013Z"
+    created: "2026-11-26T07:46:38.33559795Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -423,7 +438,7 @@ entries:
     version: 0.2.20
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.5778768Z"
+    created: "2026-11-26T07:46:38.326821967Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -438,7 +453,7 @@ entries:
     version: 0.2.19
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.573333674Z"
+    created: "2026-11-26T07:46:38.323347321Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -453,7 +468,7 @@ entries:
     version: 0.2.18
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.569826611Z"
+    created: "2026-11-26T07:46:38.318321036Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -468,7 +483,7 @@ entries:
     version: 0.2.17
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.566172997Z"
+    created: "2026-11-26T07:46:38.314896672Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -483,7 +498,7 @@ entries:
     version: 0.2.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.561305042Z"
+    created: "2026-11-26T07:46:38.310761862Z"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -498,7 +513,7 @@ entries:
     version: 0.2.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.557732872Z"
+    created: "2026-11-26T07:46:38.306685479Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -513,7 +528,7 @@ entries:
     version: 0.2.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.552886391Z"
+    created: "2026-11-26T07:46:38.301846082Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -528,7 +543,7 @@ entries:
     version: 0.2.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.549385273Z"
+    created: "2026-11-26T07:46:38.298406934Z"
     dependencies:
     - condition: mysql.enabled
       name: mariadb
@@ -543,7 +558,7 @@ entries:
     version: 0.2.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.5451071Z"
+    created: "2026-11-26T07:46:38.294872267Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -558,7 +573,7 @@ entries:
     version: 0.2.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.54118093Z"
+    created: "2026-11-26T07:46:38.289221534Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -573,7 +588,7 @@ entries:
     version: 0.2.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.706742948Z"
+    created: "2026-11-26T07:46:38.474460168Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -588,7 +603,7 @@ entries:
     version: 0.2.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.700477034Z"
+    created: "2026-11-26T07:46:38.466690106Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -603,7 +618,7 @@ entries:
     version: 0.2.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.696543247Z"
+    created: "2026-11-26T07:46:38.460917515Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -618,7 +633,7 @@ entries:
     version: 0.2.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.691367583Z"
+    created: "2026-11-26T07:46:38.45320095Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -633,7 +648,7 @@ entries:
     version: 0.2.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.686200672Z"
+    created: "2026-11-26T07:46:38.447447742Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -648,7 +663,7 @@ entries:
     version: 0.2.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.674005108Z"
+    created: "2026-11-26T07:46:38.434214778Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -663,7 +678,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.628697975Z"
+    created: "2026-11-26T07:46:38.380852376Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -678,7 +693,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.581577692Z"
+    created: "2026-11-26T07:46:38.330459755Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -693,7 +708,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.536549304Z"
+    created: "2026-11-26T07:46:38.283317885Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -708,7 +723,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.532747628Z"
+    created: "2026-11-26T07:46:38.276712968Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -723,7 +738,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.503118722Z"
+    created: "2026-11-26T07:46:38.24717517Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -738,7 +753,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.498023865Z"
+    created: "2026-11-26T07:46:38.241711193Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -753,7 +768,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.494135591Z"
+    created: "2026-11-26T07:46:38.237635213Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -768,7 +783,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.490241237Z"
+    created: "2026-11-26T07:46:38.232352024Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -783,7 +798,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.48513378Z"
+    created: "2026-11-26T07:46:38.228491285Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -798,7 +813,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.481219009Z"
+    created: "2026-11-26T07:46:38.222546409Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -813,7 +828,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.475842067Z"
+    created: "2026-11-26T07:46:38.218286674Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -828,7 +843,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.528099894Z"
+    created: "2026-11-26T07:46:38.272999784Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -843,7 +858,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.524084229Z"
+    created: "2026-11-26T07:46:38.269229149Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -858,7 +873,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.52030293Z"
+    created: "2026-11-26T07:46:38.263843879Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -873,7 +888,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.515369163Z"
+    created: "2026-11-26T07:46:38.260223454Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -888,7 +903,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.511577984Z"
+    created: "2026-11-26T07:46:38.254657817Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -903,7 +918,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: "12"
-    created: "2026-11-25T14:29:29.506863142Z"
+    created: "2026-11-26T07:46:38.250933561Z"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -919,7 +934,7 @@ entries:
   basic-app:
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.752897145Z"
+    created: "2026-11-26T07:46:38.555632793Z"
     description: A Helm chart basic apps
     digest: fe5bf4210bbe945302d45139b1266ce9577a6f2bd8fe44a554eb84d5a12ff13d
     name: basic-app
@@ -929,7 +944,7 @@ entries:
     version: 0.0.25
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.752491144Z"
+    created: "2026-11-26T07:46:38.555032427Z"
     description: A Helm chart basic apps
     digest: 4b9359e46d5939d2b7145dd30f12fee35591208c6abadd48f6722d68ca921a7e
     name: basic-app
@@ -939,7 +954,7 @@ entries:
     version: 0.0.24
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.752098445Z"
+    created: "2026-11-26T07:46:38.554431565Z"
     description: A Helm chart basic apps
     digest: a616e42bcbde0627275959535056f99dcbe43ca4fb6c2d8a4ea5bd91719f9fa5
     name: basic-app
@@ -949,7 +964,7 @@ entries:
     version: 0.0.23
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.75168815Z"
+    created: "2026-11-26T07:46:38.553818134Z"
     description: A Helm chart basic apps
     digest: 3185f940cc151509f55a419f4e0179c7ced9ed5d572f686bc7cfb87bbf75ab19
     name: basic-app
@@ -959,7 +974,7 @@ entries:
     version: 0.0.22
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.751301165Z"
+    created: "2026-11-26T07:46:38.553219766Z"
     description: A Helm chart basic apps
     digest: 1b974b6cd325e7a94986ad22a5b78aaf07bd3766576631f55f1f867f2bfaa01a
     name: basic-app
@@ -969,7 +984,7 @@ entries:
     version: 0.0.21
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.750884123Z"
+    created: "2026-11-26T07:46:38.552641337Z"
     description: A Helm chart basic apps
     digest: b62dd170c39d9aa03725e380cf674ebb96f7d9aa768f06b2ad44a1b0e2e4ec05
     name: basic-app
@@ -979,7 +994,7 @@ entries:
     version: 0.0.20
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.748643802Z"
+    created: "2026-11-26T07:46:38.551534884Z"
     description: A Helm chart basic apps
     digest: a49e3638105a650c1be03a9bb6638f8fa2e9792ae0f8750c419f0099d669ae9e
     name: basic-app
@@ -989,7 +1004,7 @@ entries:
     version: 0.0.19
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.748242395Z"
+    created: "2026-11-26T07:46:38.550960812Z"
     description: A Helm chart basic apps
     digest: 2f19acc2eca3927f8f7ab7d6fe2df01c44c4a5aec6a59b938a3f1941e55c29ea
     name: basic-app
@@ -999,7 +1014,7 @@ entries:
     version: 0.0.18
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.747851738Z"
+    created: "2026-11-26T07:46:38.550414272Z"
     description: A Helm chart basic apps
     digest: 86f752dd96381f448a25ccdb71379c280cfb39d7b0870999f2dcc4730f252101
     name: basic-app
@@ -1009,7 +1024,7 @@ entries:
     version: 0.0.17
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.747486975Z"
+    created: "2026-11-26T07:46:38.549844495Z"
     description: A Helm chart basic apps
     digest: 09d9e7af51fd53cb5db44823f177ceb0a7ce0cf697b22fee2a9af7e43735bddb
     name: basic-app
@@ -1019,7 +1034,7 @@ entries:
     version: 0.0.16
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.74712745Z"
+    created: "2026-11-26T07:46:38.549246973Z"
     description: A Helm chart basic apps
     digest: b7873cbfc8b69cf974bcb1d25f6ef7a47f8410f3d5a814e1c474963202abcdd2
     name: basic-app
@@ -1029,7 +1044,7 @@ entries:
     version: 0.0.15
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.746767509Z"
+    created: "2026-11-26T07:46:38.548526175Z"
     description: A Helm chart basic apps
     digest: bf440801b87b6ce95647a4be759ea6c90018c4ff8892f141be9514a6abf12643
     name: basic-app
@@ -1039,7 +1054,7 @@ entries:
     version: 0.0.14
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.746411247Z"
+    created: "2026-11-26T07:46:38.54757983Z"
     description: A Helm chart basic apps
     digest: 177ee9dd296bcb81d0ea65e8e8f27cb50c63833732cef131dc457a9f889aaf3b
     name: basic-app
@@ -1049,7 +1064,7 @@ entries:
     version: 0.0.13
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.74605254Z"
+    created: "2026-11-26T07:46:38.546366381Z"
     description: A Helm chart basic apps
     digest: af93ff76139102369a8cc3a58c6d5530fe098606c00ba4f2230a2ac05a7feae1
     name: basic-app
@@ -1059,7 +1074,7 @@ entries:
     version: 0.0.12
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.745673338Z"
+    created: "2026-11-26T07:46:38.54533288Z"
     description: A Helm chart basic apps
     digest: b0d118bf0b95fbf2f4854c56190d4f77ffd7d1516d54b366655ae0d2ecc9fd43
     name: basic-app
@@ -1069,7 +1084,7 @@ entries:
     version: 0.0.11
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.745299355Z"
+    created: "2026-11-26T07:46:38.544270574Z"
     description: A Helm chart basic apps
     digest: 5d99aec3e33527490dafb743881801d3fa4455bf689750bd336b85ad488fd821
     name: basic-app
@@ -1079,7 +1094,7 @@ entries:
     version: 0.0.10
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.755384134Z"
+    created: "2026-11-26T07:46:38.559939445Z"
     description: A Helm chart basic apps
     digest: c4b2dd77aee4f5b64b51e58a4e165212dfbd82388896b58d9b02bb790155478f
     name: basic-app
@@ -1089,7 +1104,7 @@ entries:
     version: 0.0.9
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.755035696Z"
+    created: "2026-11-26T07:46:38.559516281Z"
     description: A Helm chart basic apps
     digest: f4163453fd3bb661ccc6f2865440fffc7508cae41b4e754bb8f73f30cdc03ca9
     name: basic-app
@@ -1099,7 +1114,7 @@ entries:
     version: 0.0.8
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.754651852Z"
+    created: "2026-11-26T07:46:38.557340172Z"
     description: A Helm chart basic apps
     digest: ddeefd640abc1e83cae21867b8e86782c1aa27265018203e5dbab961631862e9
     name: basic-app
@@ -1109,7 +1124,7 @@ entries:
     version: 0.0.7
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.754301301Z"
+    created: "2026-11-26T07:46:38.556985203Z"
     description: A Helm chart basic apps
     digest: 281e196d9e467ba82def8263e6c81cc22d15bf9eff405b44f31658795034ab51
     name: basic-app
@@ -1119,7 +1134,7 @@ entries:
     version: 0.0.6
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.753948696Z"
+    created: "2026-11-26T07:46:38.556650008Z"
     description: A Helm chart basic apps
     digest: efa352f778db8a65df6ddab7ba08453e272767876682f862c715f7005570b3c6
     name: basic-app
@@ -1129,7 +1144,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.753555721Z"
+    created: "2026-11-26T07:46:38.556279319Z"
     description: A Helm chart basic apps
     digest: 077a60c71e234b29653bfab349af4fa4ce15aa6b6a4b8935001075ff0bb98939
     name: basic-app
@@ -1139,7 +1154,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.753223864Z"
+    created: "2026-11-26T07:46:38.555959247Z"
     description: A Helm chart basic apps
     digest: 5ce52ab01ec748dfb7ee008f1ca7380446d7332ed390dc76a1ccd1d457a67a26
     name: basic-app
@@ -1149,7 +1164,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.750114054Z"
+    created: "2026-11-26T07:46:38.552038083Z"
     description: A Helm chart basic apps
     digest: 629ce2defaa91e80158ee7799f410e15d10d7ef6af19cb18d2a2a25130ed6b1f
     name: basic-app
@@ -1159,7 +1174,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.0
-    created: "2026-11-25T14:29:29.744923697Z"
+    created: "2026-11-26T07:46:38.543501188Z"
     description: A Helm chart basic apps
     digest: 262fb13a1bb161abcf27908d9d4f48250128a669314f837470ba447a292a9d6b
     name: basic-app
@@ -1170,7 +1185,7 @@ entries:
   mediamtx:
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.763290712Z"
+    created: "2026-11-26T07:46:38.566317669Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1182,7 +1197,7 @@ entries:
     version: 0.161.14
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.76250381Z"
+    created: "2026-11-26T07:46:38.565532302Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1194,7 +1209,7 @@ entries:
     version: 0.161.13
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.761718378Z"
+    created: "2026-11-26T07:46:38.564731833Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1206,7 +1221,7 @@ entries:
     version: 0.161.12
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.760923237Z"
+    created: "2026-11-26T07:46:38.563703334Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1218,7 +1233,7 @@ entries:
     version: 0.161.11
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.760023003Z"
+    created: "2026-11-26T07:46:38.562933958Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1230,7 +1245,7 @@ entries:
     version: 0.161.10
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.771264613Z"
+    created: "2026-11-26T07:46:38.574030844Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1242,7 +1257,7 @@ entries:
     version: 0.161.9
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.770185228Z"
+    created: "2026-11-26T07:46:38.573274063Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1254,7 +1269,7 @@ entries:
     version: 0.161.8
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.769384263Z"
+    created: "2026-11-26T07:46:38.572533328Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1266,7 +1281,7 @@ entries:
     version: 0.161.7
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.768554316Z"
+    created: "2026-11-26T07:46:38.571757082Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1278,7 +1293,7 @@ entries:
     version: 0.161.6
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.767687689Z"
+    created: "2026-11-26T07:46:38.570997307Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1290,7 +1305,7 @@ entries:
     version: 0.161.5
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.766843728Z"
+    created: "2026-11-26T07:46:38.570249008Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1302,7 +1317,7 @@ entries:
     version: 0.161.4
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.764834874Z"
+    created: "2026-11-26T07:46:38.569448422Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1314,7 +1329,7 @@ entries:
     version: 0.161.3
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.764053811Z"
+    created: "2026-11-26T07:46:38.567527707Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1326,7 +1341,7 @@ entries:
     version: 0.161.2
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.759181297Z"
+    created: "2026-11-26T07:46:38.562172534Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1338,7 +1353,7 @@ entries:
     version: 0.161.1
   - apiVersion: v2
     appVersion: 1.16.1
-    created: "2026-11-25T14:29:29.758369752Z"
+    created: "2026-11-26T07:46:38.561442023Z"
     description: Deploys the bluenviron MediaMTX streaming server with per‑protocol
       Services (RTSP, RTMP, HLS, WebRTC, SRT, SRTP/ICE) and templated Ingress/Gateway
       API HTTPRoute support, configurable via values.
@@ -1350,7 +1365,7 @@ entries:
     version: 0.161.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-11-25T14:29:29.757047604Z"
+    created: "2026-11-26T07:46:38.560700408Z"
     description: A Helm chart for Kubernetes
     digest: e278ce1cac67e35cdad36b391af3c9cc7a50db7041099000cf5e1c50e17a4683
     name: mediamtx
@@ -1361,7 +1376,7 @@ entries:
   panorama-server:
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.776091927Z"
+    created: "2026-11-26T07:46:38.579693425Z"
     description: Creates and serves 360 panoramas
     digest: b297c7eb08f00c89b27878398f40d5b8ebb45daf5b15c1dff2a19699e73cd4af
     name: panorama-server
@@ -1371,7 +1386,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.775501571Z"
+    created: "2026-11-26T07:46:38.579241232Z"
     description: Creates and serves 360 panoramas
     digest: 8c873d4e7745f2f539104a1c27d62cee0f058be760b8093671757cae6ca19434
     name: panorama-server
@@ -1381,7 +1396,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.774077855Z"
+    created: "2026-11-26T07:46:38.578735138Z"
     description: Creates and serves 360 panoramas
     digest: 9036ada390f7d9911ad05abc8f880d7a869ddab8b1f8b415785b45ea614e738c
     name: panorama-server
@@ -1391,7 +1406,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.773340773Z"
+    created: "2026-11-26T07:46:38.577787676Z"
     description: Creates and serves 360 panoramas
     digest: 98d041fe3ffb0cf9355e768921ed93f71748a20f582a8223c8e4fdd337cfd41c
     name: panorama-server
@@ -1401,7 +1416,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.772828621Z"
+    created: "2026-11-26T07:46:38.576482506Z"
     description: Creates and serves 360 panoramas
     digest: 69fdbb750700539e1c2ed331139b4e07e821593ad55ad4f3af7b449dd47414e9
     name: panorama-server
@@ -1411,7 +1426,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.772291031Z"
+    created: "2026-11-26T07:46:38.575233439Z"
     description: Creates and serves 360 panoramas
     digest: 5088b12173ef17316ab69a3a177ced6cd9dc72bd7606024102812019f060f8a4
     name: panorama-server
@@ -1421,7 +1436,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.7716915Z"
+    created: "2026-11-26T07:46:38.57446507Z"
     description: Creates and serves 360 panoramas
     digest: 59e0bd235224289d4b76203f315cbe2ed59121ef768eb86c347c9f3e7be1c356
     name: panorama-server
@@ -1432,7 +1447,7 @@ entries:
   reviewsup:
   - apiVersion: v2
     appVersion: latest
-    created: "2026-11-25T14:29:29.776523693Z"
+    created: "2026-11-26T07:46:38.58009145Z"
     description: A Helm chart for Kubernetes
     digest: c59991e856315ce2aba5b7d2a7130241fe29f883b239de9dabffc377275bf5c6
     name: reviewsup
@@ -1440,4 +1455,4 @@ entries:
     urls:
     - https://f3k-tech.github.io/helm-f3k/reviewsup-0.0.1.tgz
     version: 0.0.1
-generated: "2026-11-25T14:29:29.471437034Z"
+generated: "2026-11-26T07:46:38.214053717Z"
